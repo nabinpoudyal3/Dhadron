@@ -106,6 +106,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_l1Tau_energy                        ;
 	TH1F *h_l1Tau_isoEt                         ;
 	TH1F *h_l1Tau_hwIso                         ;
+
 	TH1F *h_matched_ak4chs_n                    ;
 	TH1F *h_matched_ak4chs_pt                   ;
 	TH1F *h_matched_ak4chs_mass                 ;
@@ -116,7 +117,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_matched_ak4chs_jetArea              ;
 	TH1F *h_matched_ak4chs_charge               ;
 	TH1F *h_matched_ak4chs_isolation            ;
-	TH1F *h_matched_ak4chs_higgsMass            ;
+
 	TH1F *h_selected_ak4chs_n                   ;
 	TH1F *h_selected_ak4chs_pt                  ;
 	TH1F *h_selected_ak4chs_mass                ;
@@ -127,7 +128,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_selected_ak4chs_jetArea             ;
 	TH1F *h_selected_ak4chs_charge              ;
 	TH1F *h_selected_ak4chs_isolation           ;
-	TH1F *h_selected_ak4chs_higgsMass           ;
+
 	TH1F *h_matched_ak1chs_n                    ;
 	TH1F *h_matched_ak1chs_pt                   ;
 	TH1F *h_matched_ak1chs_mass                 ;
@@ -138,7 +139,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_matched_ak1chs_jetArea              ;
 	TH1F *h_matched_ak1chs_charge               ;
 	TH1F *h_matched_ak1chs_isolation            ;
-	TH1F *h_matched_ak1chs_higgsMass            ;
+
 	TH1F *h_isolated_ak1chs_n                   ;
 	TH1F *h_isolated_ak1chs_pt                  ;
 	TH1F *h_isolated_ak1chs_mass                ;
@@ -150,6 +151,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_isolated_ak1chs_charge              ;
 	TH1F *h_isolated_ak1chs_isolation           ;
 	TH1F *h_isolated_ak1chs_higgsMass           ;
+
 	TH1F *h_selected_ak1chs_n                   ;
 	TH1F *h_selected_ak1chs_pt                  ;
 	TH1F *h_selected_ak1chs_mass                ;
@@ -161,6 +163,5 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_selected_ak1chs_charge              ;
 	TH1F *h_selected_ak1chs_isolation           ;
 	TH1F *h_selected_ak1chs_higgsMass           ;
-
 };
 #endif

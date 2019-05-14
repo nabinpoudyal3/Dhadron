@@ -25,15 +25,10 @@ process.source = cms.Source("PoolSource",
 from JMEAnalysis.JetToolbox.jetToolbox_cff import *
 jetToolbox( process, 'ak1', 'ak1JetSubs', 'noOutput',
   PUMethod ='CHS',       
-  Cut ='pt > 10. && abs(eta) < 2.1',              
+  #Cut ='pt > 10. && abs(eta) < 2.1',              
   JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
 )
 
-jetToolbox( process, 'ak2', 'ak2JetSubs', 'noOutput',
-  PUMethod ='CHS',       
-  Cut ='pt > 10. && abs(eta) < 2.1',              
-  JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
-)
 
 # process.triggerSelection = cms.EDFilter("TriggerResultsFilter",
 #   triggerConditions = cms.vstring(
@@ -70,7 +65,7 @@ process.reClusterONE = cms.EDAnalyzer('Dhadron',
     pfCands   = cms.InputTag("packedPFCandidates"),   
 )
 process.TFileService = cms.Service("TFileService",
-      fileName = cms.string("ReClusteredHist_bb.root"),
+      fileName = cms.string("ReClustered.root"),
       closeFileFast = cms.untracked.bool(True)
 )
 # Uncomment the following line if you would like to output the jet collections in a root file

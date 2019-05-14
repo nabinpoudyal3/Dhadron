@@ -11,9 +11,9 @@ process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_condD
 process.GlobalTag.globaltag = '94X_mc2017_realistic_v14'
 process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 process.options.allowUnscheduled = cms.untracked.bool(True)
-process.MessageLogger.cerr.FwkReport.reportEvery = 1
+process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.source = cms.Source("PoolSource",
 
     fileNames = cms.untracked.vstring(
@@ -23,7 +23,7 @@ process.source = cms.Source("PoolSource",
 from JMEAnalysis.JetToolbox.jetToolbox_cff import *
 jetToolbox( process, 'ak1', 'ak1JetSubs', 'noOutput',
   PUMethod ='CHS',       
-  Cut ='pt > 10. && abs(eta) < 2.1',              
+  # Cut ='pt > 10. && abs(eta) < 2.1',              
   JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
 )
 
