@@ -23,6 +23,8 @@
 #include <array>
 #include <algorithm>
 #include <string>
+
+#include "hTocc/Dhadron/plugins/Dhadron.h"
 // user include files
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/one/EDAnalyzer.h"
@@ -77,85 +79,6 @@
 // constructor "usesResource("TFileService");"
 // This will improve performance in multithreaded jobs.
 
-class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
-  public:
-    explicit Dhadron(const edm::ParameterSet&);
-    ~Dhadron();
-
-    static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
-    
-  private:
-    virtual void beginJob() override;
-    virtual void analyze(const edm::Event&, const edm::EventSetup&) override;
-    virtual void endJob() override;
-
-    // ----------member data ---------------------------
-    edm::EDGetTokenT <std::vector<reco::Vertex>>      vtxToken_;
-    edm::EDGetTokenT <pat::ElectronCollection>        electronToken_;
-    edm::EDGetTokenT <pat::TauCollection>             tauToken_;
-    edm::EDGetTokenT <pat::MuonCollection>            muonToken_;
-    edm::EDGetTokenT <pat::PhotonCollection>          photonToken_;
-    edm::EDGetTokenT <pat::JetCollection>             jetToken_;
-    edm::EDGetTokenT <pat::METCollection>             metToken_;
-    edm::EDGetTokenT <pat::JetCollection>             fatjetToken_;
-    edm::EDGetTokenT <pat::PackedCandidateCollection> pfToken_;
-
-    edm::EDGetTokenT <pat::JetCollection>             ak1PFCHSjetToken_;
-    edm::EDGetTokenT <pat::JetCollection>             ak2PFCHSjetToken_;
-    
-    edm::EDGetTokenT <edm::TriggerResults>                        triggerBits_;
-    edm::EDGetTokenT <std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;
-    edm::EDGetTokenT <pat::PackedTriggerPrescales>                triggerPrescales_;
-    
-
-    edm::EDGetTokenT <l1t::EGammaBxCollection> l1EGammasToken_;
-    edm::EDGetTokenT <l1t::MuonBxCollection  > l1MuonsToken_;
-    edm::EDGetTokenT <l1t::JetBxCollection   > l1JetsToken_;
-    edm::EDGetTokenT <l1t::EtSumBxCollection > l1EtSumsToken_ ;
-    edm::EDGetTokenT <l1t::TauBxCollection   > l1TauToken_;
-
-
-    // edm::EDGetTokenT <reco::GenJetCollection>         ak4genjetToken_;
-
-    TH1D * h_ak1chs_pt      ;
-    TH1D * h_ak1chs_mass    ;
-    TH1D * h_ak1chs_numberOfDaughters;
-    TH1D * h_ak1chs_higgsMass;
-    TH1D * h_ak1chs_partonFlavour;
-    TH1D * h_ak1chs_Iso_dR5;
-
-    TH1D * h_ak2chs_pt      ;
-    TH1D * h_ak2chs_mass    ;
-    TH1D * h_ak2chs_numberOfDaughters;
-    TH1D * h_ak2chs_higgsMass;
-    TH1D * h_ak2chs_partonFlavour;
-    TH1D * h_ak2chs_Iso_dR5;
-
-    TH1D * h_ak4_pt      ;
-    TH1D * h_ak4_mass    ;
-    TH1D * h_ak4_numberOfDaughters;
-    TH1D * h_ak4chs_higgsMass;
-    TH1D * h_ak4chs_partonFlavour;
-    TH1D * h_ak4chs_Iso_dR5;
-
-    TH1D * h_ak1chs_pt_01      ;
-    TH1D * h_ak1chs_mass_01    ;
-    TH1D * h_ak1chs_numberOfDaughters_01;
-    TH1D * h_ak1chs_higgsMass1;
-    TH1D * h_ak1chs_partonFlavour_01;
-
-    TH1D * h_ak2chs_pt_01      ;
-    TH1D * h_ak2chs_mass_01    ;
-    TH1D * h_ak2chs_numberOfDaughters_01;
-    TH1D * h_ak2chs_higgsMass1;
-    TH1D * h_ak2chs_partonFlavour_01;
-
-    TH1D * h_ak4_pt_01      ;
-    TH1D * h_ak4_mass_01    ;
-    TH1D * h_ak4_numberOfDaughters_01;
-    TH1D * h_ak4chs_higgsMass1;
-    TH1D * h_ak4chs_partonFlavour_01;
-};
 //
 // constants, enums and typedefs
 //
@@ -165,7 +88,8 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 //
 // constructors and destructor
 //
-Dhadron::Dhadron(const edm::ParameterSet& iConfig):
+Dhadron::Dhadron(const edm::ParameterSet& iConfig)
+  :
   vtxToken_     (consumes<std::vector<reco::Vertex>>      (iConfig.getParameter<edm::InputTag>("vertices"))),
   electronToken_(consumes<pat::ElectronCollection>        (iConfig.getParameter<edm::InputTag>("electrons"))),
   tauToken_     (consumes<pat::TauCollection>             (iConfig.getParameter<edm::InputTag>("taus"))),
@@ -219,19 +143,19 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig):
     h_ak1chs_pt_01                 = fs->make<TH1D>("h_ak1chs_pt_01 "               ,"", 200,0,200); 
     h_ak1chs_mass_01               = fs->make<TH1D>("h_ak1chs_mass_01 "             ,"", 100,0,10); 
     h_ak1chs_numberOfDaughters_01  = fs->make<TH1D>("h_ak1chs_numberOfDaughters_01 ","", 10, 0,10); 
-    h_ak1chs_higgsMass1          = fs->make<TH1D>("h_ak1chs_higgsMass1 "        ,"", 200,0,200); 
+    h_ak1chs_higgsMass1            = fs->make<TH1D>("h_ak1chs_higgsMass1 "        ,"", 200,0,200); 
     h_ak1chs_partonFlavour_01      = fs->make<TH1D>("h_ak1chs_partonFlavour_01 "    ,"", 10,0,10); 
 
     h_ak2chs_pt_01                 = fs->make<TH1D>("h_ak2chs_pt_01 "               ,"", 200,0,200);
     h_ak2chs_mass_01               = fs->make<TH1D>("h_ak2chs_mass_01 "             ,"", 100,0,10); 
     h_ak2chs_numberOfDaughters_01  = fs->make<TH1D>("h_ak2chs_numberOfDaughters_01 ","", 10, 0,10); 
-    h_ak2chs_higgsMass1          = fs->make<TH1D>("h_ak2chs_higgsMass1 "        ,"", 200,0,200);
+    h_ak2chs_higgsMass1            = fs->make<TH1D>("h_ak2chs_higgsMass1 "        ,"", 200,0,200);
     h_ak2chs_partonFlavour_01      = fs->make<TH1D>("h_ak2chs_partonFlavour_01 "    ,"", 10,0,10); 
 
     h_ak4_pt_01                    = fs->make<TH1D>("h_ak4_pt_01 "                  ,"", 200,0,200); 
     h_ak4_mass_01                  = fs->make<TH1D>("h_ak4_mass_01 "                ,"", 100,0,10); 
     h_ak4_numberOfDaughters_01     = fs->make<TH1D>("h_ak4_numberOfDaughters_01 "   ,"", 10, 0,10); 
-    h_ak4chs_higgsMass1          = fs->make<TH1D>("h_ak4chs_higgsMass1 "        ,"", 200,0,200);
+    h_ak4chs_higgsMass1            = fs->make<TH1D>("h_ak4chs_higgsMass1 "        ,"", 200,0,200);
     h_ak4chs_partonFlavour_01      = fs->make<TH1D>("h_ak4chs_partonFlavour_01 "    ,"", 10,0,10); 
 
 }
@@ -320,16 +244,14 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
   if ((*AK1CHS.product()).size()<=1 || (*AK2CHS.product()).size()<=1 || (*AK4CHS.product()).size() <=1 || (*L1Taus.product()).size() <=1 || (*L1Taus.product()).size() >=4) return;
   
-  // cout << "Number of L1 tau objects: " << (*L1Taus.product()).size() << endl;
-
   // ak1jets
   vector<TLorentzVector> higgsMass1Total; higgsMass1Total.clear();
   vector<TLorentzVector> higgsMass1Total1; higgsMass1Total1.clear();
   
-  
-  for (const pat::Jet &ijet : *AK1CHS) {
+  vector<pat::Jet> myselectedAK1jets; myselectedAK1jets.clear();
 
-    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
+  for (const pat::Jet &ijet : *AK1CHS) {
+    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.5 || ijet.mass() >= 4) continue;
     for (const l1t::Tau &itau : *L1Taus) {
       if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) >= 0.15) continue; // did not match
     
@@ -359,7 +281,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       }
       double iso = (charged + std::max(0.0, neutral-0.5*pileup))/ijet.pt();
       h_ak1chs_Iso_dR5->Fill(iso);
-      if (iso >= 0.05) continue; // do things below for isolated jets only
+      if (iso >= 0.15) continue; // do things below for isolated jets only
       // working with numbers of daughters in the jet
       // for (unsigned int i = 0; i < constituents.size(); ++i) {
       //   const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
@@ -367,7 +289,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       //   cout << cand.pdgId() << endl;
 
       // }
-      
+      myselectedAK1jets.push_back(ijet);
       constituents.clear(); 
       TLorentzVector higgsMass1(0,0,0,0);
       higgsMass1.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
@@ -389,6 +311,9 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       break;
     }
   }
+  cout << "test, size of the myselectedAK1jets " << myselectedAK1jets.size() << endl;
+  cout << "first pt of the myselectedAK1jets: " << myselectedAK1jets[0].pt() << endl;
+
   if (higgsMass1Total.size() >= 2) h_ak1chs_higgsMass->Fill((higgsMass1Total[0]+higgsMass1Total[1]).M());
   if (higgsMass1Total1.size() >= 2) h_ak1chs_higgsMass1->Fill((higgsMass1Total1[0]+higgsMass1Total1[1]).M());
   
