@@ -13,7 +13,7 @@ process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 process.options.allowUnscheduled = cms.untracked.bool(True)
 process.MessageLogger.cerr.FwkReport.reportEvery = 1
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(5000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10000) )
 process.source = cms.Source("PoolSource",
 
     fileNames = cms.untracked.vstring(
@@ -27,11 +27,11 @@ jetToolbox( process, 'ak1', 'ak1JetSubs', 'noOutput',
   JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
 )
 
-jetToolbox( process, 'ak2', 'ak2JetSubs', 'noOutput',
-  PUMethod ='CHS',       
-  Cut ='pt > 10. && abs(eta) < 2.1',              
-  JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
-)
+# jetToolbox( process, 'ak2', 'ak2JetSubs', 'noOutput',
+#   PUMethod ='CHS',       
+#   Cut ='pt > 10. && abs(eta) < 2.1',              
+#   JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
+# )
 
 process.triggerSelection = cms.EDFilter("TriggerResultsFilter",
   triggerConditions = cms.vstring(

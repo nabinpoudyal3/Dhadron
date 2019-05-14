@@ -52,8 +52,14 @@
 #include "DataFormats/L1Trigger/interface/Jet.h"
 #include "DataFormats/L1Trigger/interface/EtSum.h"
 #include "DataFormats/L1Trigger/interface/Tau.h"
-//
 
+// class declaration
+
+// If the analyzer does not use TFileService, please remove
+// the template argument to the base class so the class inherits
+// from  edm::one::EDAnalyzer<> and also remove the line from
+// constructor "usesResource("TFileService");"
+// This will improve performance in multithreaded jobs.
 class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
   public:
     explicit Dhadron(const edm::ParameterSet&);
@@ -78,7 +84,6 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     edm::EDGetTokenT <pat::PackedCandidateCollection> pfToken_;
 
     edm::EDGetTokenT <pat::JetCollection>             ak1PFCHSjetToken_;
-    edm::EDGetTokenT <pat::JetCollection>             ak2PFCHSjetToken_;
     
     edm::EDGetTokenT <edm::TriggerResults>                        triggerBits_;
     edm::EDGetTokenT <std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;
@@ -91,49 +96,71 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     edm::EDGetTokenT <l1t::EtSumBxCollection > l1EtSumsToken_ ;
     edm::EDGetTokenT <l1t::TauBxCollection   > l1TauToken_;
 
-
     // edm::EDGetTokenT <reco::GenJetCollection>         ak4genjetToken_;
+  
+	TH1F *h_l1Tau_n                             ;
+	TH1F *h_l1Tau_pt                            ;
+	TH1F *h_l1Tau_eta                           ;
+	TH1F *h_l1Tau_phi                           ;
+	TH1F *h_l1Tau_mt                            ;
+	TH1F *h_l1Tau_energy                        ;
+	TH1F *h_l1Tau_isoEt                         ;
+	TH1F *h_l1Tau_hwIso                         ;
+	TH1F *h_matched_ak4chs_n                    ;
+	TH1F *h_matched_ak4chs_pt                   ;
+	TH1F *h_matched_ak4chs_mass                 ;
+	TH1F *h_matched_ak4chs_neutralMultiplicity  ;
+	TH1F *h_matched_ak4chs_chargedMultiplicity  ;
+	TH1F *h_matched_ak4chs_numberOfDaughters    ;
+	TH1F *h_matched_ak4chs_partonFlavour        ;
+	TH1F *h_matched_ak4chs_jetArea              ;
+	TH1F *h_matched_ak4chs_charge               ;
+	TH1F *h_matched_ak4chs_isolation            ;
+	TH1F *h_matched_ak4chs_higgsMass            ;
+	TH1F *h_selected_ak4chs_n                   ;
+	TH1F *h_selected_ak4chs_pt                  ;
+	TH1F *h_selected_ak4chs_mass                ;
+	TH1F *h_selected_ak4chs_neutralMultiplicity ;
+	TH1F *h_selected_ak4chs_chargedMultiplicity ;
+	TH1F *h_selected_ak4chs_numberOfDaughters   ;
+	TH1F *h_selected_ak4chs_partonFlavour       ;
+	TH1F *h_selected_ak4chs_jetArea             ;
+	TH1F *h_selected_ak4chs_charge              ;
+	TH1F *h_selected_ak4chs_isolation           ;
+	TH1F *h_selected_ak4chs_higgsMass           ;
+	TH1F *h_matched_ak1chs_n                    ;
+	TH1F *h_matched_ak1chs_pt                   ;
+	TH1F *h_matched_ak1chs_mass                 ;
+	TH1F *h_matched_ak1chs_neutralMultiplicity  ;
+	TH1F *h_matched_ak1chs_chargedMultiplicity  ;
+	TH1F *h_matched_ak1chs_numberOfDaughters    ;
+	TH1F *h_matched_ak1chs_partonFlavour        ;
+	TH1F *h_matched_ak1chs_jetArea              ;
+	TH1F *h_matched_ak1chs_charge               ;
+	TH1F *h_matched_ak1chs_isolation            ;
+	TH1F *h_matched_ak1chs_higgsMass            ;
+	TH1F *h_isolated_ak1chs_n                   ;
+	TH1F *h_isolated_ak1chs_pt                  ;
+	TH1F *h_isolated_ak1chs_mass                ;
+	TH1F *h_isolated_ak1chs_neutralMultiplicity ;
+	TH1F *h_isolated_ak1chs_chargedMultiplicity ;
+	TH1F *h_isolated_ak1chs_numberOfDaughters   ;
+	TH1F *h_isolated_ak1chs_partonFlavour       ;
+	TH1F *h_isolated_ak1chs_jetArea             ;
+	TH1F *h_isolated_ak1chs_charge              ;
+	TH1F *h_isolated_ak1chs_isolation           ;
+	TH1F *h_isolated_ak1chs_higgsMass           ;
+	TH1F *h_selected_ak1chs_n                   ;
+	TH1F *h_selected_ak1chs_pt                  ;
+	TH1F *h_selected_ak1chs_mass                ;
+	TH1F *h_selected_ak1chs_neutralMultiplicity ;
+	TH1F *h_selected_ak1chs_chargedMultiplicity ;
+	TH1F *h_selected_ak1chs_numberOfDaughters   ;
+	TH1F *h_selected_ak1chs_partonFlavour       ;
+	TH1F *h_selected_ak1chs_jetArea             ;
+	TH1F *h_selected_ak1chs_charge              ;
+	TH1F *h_selected_ak1chs_isolation           ;
+	TH1F *h_selected_ak1chs_higgsMass           ;
 
-    
-
-    TH1D * h_ak1chs_pt      ;
-    TH1D * h_ak1chs_mass    ;
-    TH1D * h_ak1chs_numberOfDaughters;
-    TH1D * h_ak1chs_higgsMass;
-    TH1D * h_ak1chs_partonFlavour;
-    TH1D * h_ak1chs_Iso_dR5;
-
-    TH1D * h_ak2chs_pt      ;
-    TH1D * h_ak2chs_mass    ;
-    TH1D * h_ak2chs_numberOfDaughters;
-    TH1D * h_ak2chs_higgsMass;
-    TH1D * h_ak2chs_partonFlavour;
-    TH1D * h_ak2chs_Iso_dR5;
-
-    TH1D * h_ak4_pt      ;
-    TH1D * h_ak4_mass    ;
-    TH1D * h_ak4_numberOfDaughters;
-    TH1D * h_ak4chs_higgsMass;
-    TH1D * h_ak4chs_partonFlavour;
-    TH1D * h_ak4chs_Iso_dR5;
-
-    TH1D * h_ak1chs_pt_01      ;
-    TH1D * h_ak1chs_mass_01    ;
-    TH1D * h_ak1chs_numberOfDaughters_01;
-    TH1D * h_ak1chs_higgsMass1;
-    TH1D * h_ak1chs_partonFlavour_01;
-
-    TH1D * h_ak2chs_pt_01      ;
-    TH1D * h_ak2chs_mass_01    ;
-    TH1D * h_ak2chs_numberOfDaughters_01;
-    TH1D * h_ak2chs_higgsMass1;
-    TH1D * h_ak2chs_partonFlavour_01;
-
-    TH1D * h_ak4_pt_01      ;
-    TH1D * h_ak4_mass_01    ;
-    TH1D * h_ak4_numberOfDaughters_01;
-    TH1D * h_ak4chs_higgsMass1;
-    TH1D * h_ak4chs_partonFlavour_01;
 };
-
 #endif
