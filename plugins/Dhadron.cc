@@ -250,25 +250,25 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   }
 
   // working with L1 tau objects
-  h_l1Tau_n->Fill((*L1Taus.product()).size());     
-  // vector<l1t::Tau> myTauObjVector; myTauObjVector.clear();
-  for (unsigned int bx=0; bx<1; bx++){
-    for(unsigned int i=0; i < (*L1Taus.product()).size(bx); i++ ){
-        const l1t::Tau &myTauObj = (*L1Taus.product()).at(bx,i);
-        // if (myTauObj.pt() >= 28.0 && abs(myTauObj.eta()) < 2.1){
-          h_l1Tau_pt     ->Fill(myTauObj.pt());
-          h_l1Tau_eta    ->Fill(myTauObj.eta());
-          h_l1Tau_phi    ->Fill(myTauObj.phi());
-          h_l1Tau_mt     ->Fill(myTauObj.mt());
-          h_l1Tau_energy ->Fill(myTauObj.energy());
-          h_l1Tau_isoEt  ->Fill(myTauObj.isoEt());
-          h_l1Tau_hwIso  ->Fill(myTauObj.hwIso());
-          // myTauObjVector.push_back(myTauObj);
-        //}
+  int l1_count = 0;
+  for ( int bx=L1Taus->getFirstBX(); bx <=L1Taus->getLastBX(); ++bx){
+    for (l1t::TauBxCollection::const_iterator myTauObj=L1Taus->begin(bx); myTauObj!=L1Taus->end(bx); myTauObj++){
+        if (myTauObj->pt() >= 30.0 && abs(myTauObj->eta()) < 2.1 && myTauObj->hwIso() ==1 ){
+          h_l1Tau_pt     ->Fill(myTauObj->pt());
+          h_l1Tau_eta    ->Fill(myTauObj->eta());
+          h_l1Tau_phi    ->Fill(myTauObj->phi());
+          h_l1Tau_mt     ->Fill(myTauObj->mt());
+          h_l1Tau_energy ->Fill(myTauObj->energy());
+          h_l1Tau_isoEt  ->Fill(myTauObj->isoEt());
+          h_l1Tau_hwIso  ->Fill(myTauObj->hwIso());
+          l1_count++;
+        }
     }
   }
   //
-  if((*AK1CHS.product()).size() <=1 || (*AK4CHS.product()).size() <=1 || (*L1Taus.product()).size() <=1 || (*L1Taus.product()).size() >=4) return;
+  h_l1Tau_n->Fill(l1_count);  
+  // below says there are 2 or 3 high pt L1 tau object but also other numerous low pt l1 taus.    
+  if((*AK1CHS.product()).size() <=1 || (*AK4CHS.product()).size() <=1 || l1_count <=1 || l1_count >=4) return;
   // finding the matched ak4 and filling them
   vector<pat::Jet> matched_ak4chsJets; //matched_ak4chsJets.clear();
   for (const pat::Jet &ijet : *AK4CHS) {  
