@@ -96,7 +96,7 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     edm::EDGetTokenT <l1t::EtSumBxCollection > l1EtSumsToken_ ;
     edm::EDGetTokenT <l1t::TauBxCollection   > l1TauToken_;
 
-    // edm::EDGetTokenT <reco::GenJetCollection>         ak4genjetToken_;
+    edm::EDGetTokenT <reco::GenJetCollection> ak4genjetToken_;
   
 	TH1F *h_l1Tau_n                             ;
 	TH1F *h_l1Tau_pt                            ;
@@ -141,16 +141,16 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_matched_ak1chs_isolation            ;
 
 	TH1F *h_isolated_ak1chs_n                   ;
-	TH1F *h_isolated_ak1chs_pt                  ;
-	TH1F *h_isolated_ak1chs_mass                ;
-	TH1F *h_isolated_ak1chs_neutralMultiplicity ;
-	TH1F *h_isolated_ak1chs_chargedMultiplicity ;
-	TH1F *h_isolated_ak1chs_numberOfDaughters   ;
-	TH1F *h_isolated_ak1chs_partonFlavour       ;
-	TH1F *h_isolated_ak1chs_jetArea             ;
-	TH1F *h_isolated_ak1chs_charge              ;
-	TH1F *h_isolated_ak1chs_isolation           ;
-	TH1F *h_isolated_ak1chs_higgsMass           ;
+	// TH1F *h_isolated_ak1chs_pt                  ;
+	// TH1F *h_isolated_ak1chs_mass                ;
+	// TH1F *h_isolated_ak1chs_neutralMultiplicity ;
+	// TH1F *h_isolated_ak1chs_chargedMultiplicity ;
+	// TH1F *h_isolated_ak1chs_numberOfDaughters   ;
+	// TH1F *h_isolated_ak1chs_partonFlavour       ;
+	// TH1F *h_isolated_ak1chs_jetArea             ;
+	// TH1F *h_isolated_ak1chs_charge              ;
+	// TH1F *h_isolated_ak1chs_isolation           ;
+	// TH1F *h_isolated_ak1chs_higgsMass           ;
 
 	TH1F *h_selected_ak1chs_n                   ;
 	TH1F *h_selected_ak1chs_pt                  ;

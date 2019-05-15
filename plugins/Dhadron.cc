@@ -97,9 +97,9 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
   l1MuonsToken_   (consumes<l1t::MuonBxCollection  >(edm::InputTag("gmtStage2Digis:Muon"))),
   l1JetsToken_    (consumes<l1t::JetBxCollection   >(edm::InputTag("caloStage2Digis:Jet"))),
   l1EtSumsToken_  (consumes<l1t::EtSumBxCollection >(edm::InputTag("caloStage2Digis:EtSum"))),
-  l1TauToken_     (consumes<l1t::TauBxCollection   >(edm::InputTag("caloStage2Digis:Tau")))
+  l1TauToken_     (consumes<l1t::TauBxCollection   >(edm::InputTag("caloStage2Digis:Tau"))),
 
-  // ak4genjetToken_(consumes<reco::GenJetCollection>(edm::InputTag("slimmedGenJets")))
+  ak4genjetToken_ (consumes<reco::GenJetCollection >(edm::InputTag("slimmedGenJets")))
 {
     //now do what ever initialization is needed
     usesResource("TFileService");
@@ -148,16 +148,16 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_matched_ak1chs_isolation            = fs->make<TH1F>("h_matched_ak1chs_isolation",            "h_matched_ak1chs_isolation",          200,0.,2.)  ;
     // if the matched ak1 is isolated with 10%
     h_isolated_ak1chs_n                   = fs->make<TH1F>("h_isolated_ak1chs_n",                    "h_isolated_ak1chs_n",                  20,0.,20.)  ;
-    h_isolated_ak1chs_pt                  = fs->make<TH1F>("h_isolated_ak1chs_pt",                   "h_isolated_ak1chs_pt" ,                200,0.,200.); 
-    h_isolated_ak1chs_mass                = fs->make<TH1F>("h_isolated_ak1chs_mass",                 "h_isolated_ak1chs_mass" ,              200,0.,200.); 
-    h_isolated_ak1chs_neutralMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_neutralMultiplicity",  "h_isolated_ak1chs_neutralMultiplicity",50,0.,50.)  ;
-    h_isolated_ak1chs_chargedMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_chargedMultiplicity",  "h_isolated_ak1chs_chargedMultiplicity",50,0.,50.)  ;
-    h_isolated_ak1chs_numberOfDaughters   = fs->make<TH1F>("h_isolated_ak1chs_numberOfDaughters",    "h_isolated_ak1chs_numberOfDaughters",  50,0.,50.)  ;
-    h_isolated_ak1chs_partonFlavour       = fs->make<TH1F>("h_isolated_ak1chs_partonFlavour",        "h_isolated_ak1chs_partonFlavour",      25,0.,25.)  ;
-    h_isolated_ak1chs_jetArea             = fs->make<TH1F>("h_isolated_ak1chs_jetArea",              "h_isolated_ak1chs_jetArea",            100,0.,1.)  ;
-    h_isolated_ak1chs_charge              = fs->make<TH1F>("h_isolated_ak1chs_charge",               "h_isolated_ak1chs_charge",             40,-20.,20.);
-    h_isolated_ak1chs_isolation           = fs->make<TH1F>("h_isolated_ak1chs_isolation",            "h_isolated_ak1chs_isolation",          200,0.,2.)  ;
-    h_isolated_ak1chs_higgsMass           = fs->make<TH1F>("h_isolated_ak1chs_higgsMass",            "h_isolated_ak1chs_higgsMass",          200,0.,200.);
+    // h_isolated_ak1chs_pt                  = fs->make<TH1F>("h_isolated_ak1chs_pt",                   "h_isolated_ak1chs_pt" ,                200,0.,200.); 
+    // h_isolated_ak1chs_mass                = fs->make<TH1F>("h_isolated_ak1chs_mass",                 "h_isolated_ak1chs_mass" ,              200,0.,200.); 
+    // h_isolated_ak1chs_neutralMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_neutralMultiplicity",  "h_isolated_ak1chs_neutralMultiplicity",50,0.,50.)  ;
+    // h_isolated_ak1chs_chargedMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_chargedMultiplicity",  "h_isolated_ak1chs_chargedMultiplicity",50,0.,50.)  ;
+    // h_isolated_ak1chs_numberOfDaughters   = fs->make<TH1F>("h_isolated_ak1chs_numberOfDaughters",    "h_isolated_ak1chs_numberOfDaughters",  50,0.,50.)  ;
+    // h_isolated_ak1chs_partonFlavour       = fs->make<TH1F>("h_isolated_ak1chs_partonFlavour",        "h_isolated_ak1chs_partonFlavour",      25,0.,25.)  ;
+    // h_isolated_ak1chs_jetArea             = fs->make<TH1F>("h_isolated_ak1chs_jetArea",              "h_isolated_ak1chs_jetArea",            100,0.,1.)  ;
+    // h_isolated_ak1chs_charge              = fs->make<TH1F>("h_isolated_ak1chs_charge",               "h_isolated_ak1chs_charge",             40,-20.,20.);
+    // h_isolated_ak1chs_isolation           = fs->make<TH1F>("h_isolated_ak1chs_isolation",            "h_isolated_ak1chs_isolation",          200,0.,2.)  ;
+    // h_isolated_ak1chs_higgsMass           = fs->make<TH1F>("h_isolated_ak1chs_higgsMass",            "h_isolated_ak1chs_higgsMass",          200,0.,200.);
     // if isolated ak1 has at least two jets work in higgs
     h_selected_ak1chs_n                   = fs->make<TH1F>("h_selected_ak1chs_n",                    "h_selected_ak1chs_n",                  20,0.,20.)  ;
     h_selected_ak1chs_pt                  = fs->make<TH1F>("h_selected_ak1chs_pt",                   "h_selected_ak1chs_pt" ,                200,0.,200.); 
@@ -360,24 +360,26 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   vector<TLorentzVector> listOf4Vector; listOf4Vector.clear();
   if (isolated_ak1chsJets.size() == 2 || isolated_ak1chsJets.size() ==3) {
     for (const pat::Jet &ijet : isolated_ak1chsJets) {
-      h_isolated_ak1chs_pt                  ->Fill(ijet.pt());
-      h_isolated_ak1chs_mass                ->Fill(ijet.mass());
-      h_isolated_ak1chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity());
-      h_isolated_ak1chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity());
-      h_isolated_ak1chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters());
-      h_isolated_ak1chs_partonFlavour       ->Fill(ijet.partonFlavour());
-      h_isolated_ak1chs_jetArea             ->Fill(ijet.jetArea());
-      h_isolated_ak1chs_charge              ->Fill(ijet.charge());
-      h_isolated_ak1chs_isolation           ->Fill(-1000);
+      h_selected_ak1chs_pt                  ->Fill(ijet.pt());
+      h_selected_ak1chs_mass                ->Fill(ijet.mass());
+      h_selected_ak1chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity());
+      h_selected_ak1chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity());
+      h_selected_ak1chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters());
+      h_selected_ak1chs_partonFlavour       ->Fill(ijet.partonFlavour());
+      h_selected_ak1chs_jetArea             ->Fill(ijet.jetArea());
+      h_selected_ak1chs_charge              ->Fill(ijet.charge());
+      h_selected_ak1chs_isolation           ->Fill(-1000);
 
       TLorentzVector forHiggs4vector(0,0,0,0);
       forHiggs4vector.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
       listOf4Vector.push_back(forHiggs4vector);
       // selected the appropriate isolated jet and work on daughters
+
     }
+    h_selected_ak1chs_n->Fill(isolated_ak1chsJets.size());
 
   } 
-  if (listOf4Vector.size() >=2) h_isolated_ak1chs_higgsMass->Fill((listOf4Vector[0] + listOf4Vector[1]).M()); 
+  if (listOf4Vector.size() >=2) h_selected_ak1chs_higgsMass->Fill((listOf4Vector[0] + listOf4Vector[1]).M()); 
   
   // edm::Handle<pat::MuonCollection>  muons;
   // iEvent.getByToken(muonToken_, muons);
