@@ -267,11 +267,11 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   // below says there are 2 or 3 high pt L1 tau object but also other numerous low pt l1 taus.    
   if((*AK1CHS.product()).size() <=1 || (*AK4CHS.product()).size() <=1 || selected_L1Tau.size() <=1 || selected_L1Tau.size() >=4) return;
   // finding the matched ak4 and filling them
-  vector<pat::Jet> matched_ak4chsJets; //matched_ak4chsJets.clear();
+  vector<pat::Jet> matched_ak4chsJets; matched_ak4chsJets.clear();
   for (const pat::Jet &ijet : *AK4CHS) {  
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1) continue;
     for (const l1t::Tau &itau : selected_L1Tau) {
-      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) <= 0.15) {
+      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) <= 0.1) {
         matched_ak4chsJets.push_back(ijet); // matched
         h_matched_ak4chs_pt                  ->Fill(ijet.pt());
         h_matched_ak4chs_mass                ->Fill(ijet.mass()); 
@@ -311,14 +311,13 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     // if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.mass() <= 1.8 ) continue;
     for (const pat::Jet &sjet : selected_ak4chsJets) {
-      if (deltaR(ijet.eta(), ijet.phi(), sjet.eta(), sjet.phi()) <= 0.15) {
+      if (deltaR(ijet.eta(), ijet.phi(), sjet.eta(), sjet.phi()) <= 0.1) {
         matched_ak1chsJets.push_back(ijet); // matched
-
         break;
       }
     }
   }
-  h_matched_ak1chs_n->Fill(matched_ak1chsJets.size()); 
+  if (matched_ak1chsJets.size() >0) h_matched_ak1chs_n->Fill(matched_ak1chsJets.size()); 
   // fillin matched jet and selecting ak1 jet depending on isolation from matched ak1
   vector<pat::Jet> isolated_ak1chsJets; isolated_ak1chsJets.clear();  
   if (matched_ak1chsJets.size() == 2 || matched_ak1chsJets.size() ==3) {
