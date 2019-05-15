@@ -342,7 +342,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       // std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
       for (unsigned int i = 0, n = pfCands->size(); i < n; ++i) {
         const pat::PackedCandidate &pf = (*pfCands)[i];
-        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 1) {
+        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 1) { // for Jacobian we really need isolated ak1 jet. 
           // pfcandidate-based constituents removal
           if (std::find(constituents.begin(), constituents.end(), reco::CandidatePtr(pfCands,i)) != constituents.end()) continue;
           if (pf.charge() == 0) {

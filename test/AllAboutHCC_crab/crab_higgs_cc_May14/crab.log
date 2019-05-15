@@ -1,0 +1,1034 @@
+|---- jetToolbox: Initializing collection... (with postfix )
+|---- jetToolBox: CMS recommends the following jet algorithms: ak4 ak8 ca4 ca8 ca10 ca15. You are using ak1 .
+|---- jetToolBox: btag discriminators are recommended for AK4 and AK8 jets. For a different cone size, please especify the discriminators. Turning OFF all the default btag discriminators.
+|---- jetToolBox: JETTOOLBOX RUNNING ON MiniAOD FOR AK1 JETS USING CHS
+|---- jetToolBox: Applying these corrections: ('AK4PFchs', ['L1FastJet', 'L2Relative', 'L3Absolute'], 'None')
+|---- jetToolBox: Creating selectedPatJetsAK1PFCHS collection.
+DEBUG 2019-05-14 20:03:23,007: 	 Executing command: 'submit'
+DEBUG 2019-05-14 20:03:23,007: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:03:23,026: 	 Checking credentials
+DEBUG 2019-05-14 20:03:23,026: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:23,026: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:23,128: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 43025
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:23,232: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 43024
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:23,232: 	 Proxy lifetime 43025 secs is different from voms extension lifetime 43024 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:23,232: 	 Proxy valid for 11:57:04 hours
+INFO 2019-05-14 20:03:23,232: 	 Will use CRAB configuration file h2ccCRAB.py
+DEBUG 2019-05-14 20:03:23,233: 	 Loading CRAB configuration file.
+DEBUG 2019-05-14 20:03:24,523: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2019-05-14 20:03:24,638: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:24,639: 	 Checking credentials
+DEBUG 2019-05-14 20:03:24,639: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:24,639: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:24,741: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 43024
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:24,844: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 43023
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:24,844: 	 Proxy lifetime 43024 secs is different from voms extension lifetime 43023 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:24,844: 	 Proxy valid for 11:57:03 hours
+DEBUG 2019-05-14 20:03:24,947: 	 Executing : 
+ command : env X509_USER_PROXY=/uscms/home/npoudyal/x509up_u49587 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+/cms/uscms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:25,729: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:03:25,835: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:25,835: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:03:25,836: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:03:26,940: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 502:01:02  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:26,942: 	 Myproxy is valid: 1807262
+DEBUG 2019-05-14 20:03:26,942: 	 Command use: submit
+DEBUG 2019-05-14 20:03:26,942: 	 Options use: ['-c', 'h2ccCRAB.py']
+DEBUG 2019-05-14 20:03:27,720: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:03:27,720: 	 Instance is prod
+DEBUG 2019-05-14 20:03:27,720: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:03:27,720: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:03:27,720: 	 Started submission
+DEBUG 2019-05-14 20:03:27,720: 	 Working on /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+DEBUG 2019-05-14 20:03:28,699: 	 Loading required information from the environment
+DEBUG 2019-05-14 20:03:28,700: 	 Found CMSSW_9_4_6_patch1 for slc6_amd64_gcc630 with base /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1
+DEBUG 2019-05-14 20:03:28,700: 	 Loading required information from the environment
+DEBUG 2019-05-14 20:03:28,700: 	 Found CMSSW_9_4_6_patch1 for slc6_amd64_gcc630 with base /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1
+DEBUG 2019-05-14 20:03:28,729: 	 UNIQUE NAME: tarUUID 1e53218f-f5c3-41e7-a77b-f360e9c44d9b 
+DEBUG 2019-05-14 20:03:28,730: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = True
+config.General.transferOutputs = True
+config.General.workArea = 'AllAboutHCC_crab'
+config.General.requestName = 'higgs_cc_May14'
+config.section_('JobType')
+config.JobType.psetName = 'reCluster_crab_cfg.py'
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.inputDataset = '/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM'
+config.Data.outputDatasetTag = 'CRAB3_higgs_cc_May14'
+config.Data.publication = False
+config.Data.unitsPerJob = 20
+config.Data.splitting = 'FileBased'
+config.Data.inputDBS = 'global'
+config.Data.outLFNDirBase = '/store/user/npoudyal/'
+config.section_('Site')
+config.Site.storageSite = 'T3_US_FNALLPC'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2019-05-14 20:03:28,730: 	 self.config.JobType.psetName: reCluster_crab_cfg.py
+INFO 2019-05-14 20:03:28,730: 	 Importing CMSSW configuration reCluster_crab_cfg.py
+INFO 2019-05-14 20:03:32,998: 	 Finished importing CMSSW configuration reCluster_crab_cfg.py
+DEBUG 2019-05-14 20:03:32,998: 	 Writing CMSSW configuration to /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/inputs/PSet.py
+DEBUG 2019-05-14 20:03:33,243: 	 The following EDM output files will be collected: []
+DEBUG 2019-05-14 20:03:33,243: 	 The following TFile output files will be collected: ['ReClustered.root']
+DEBUG 2019-05-14 20:03:33,243: 	 The following user output files will be collected: []
+DEBUG 2019-05-14 20:03:33,243: 	 Loading required information from the environment
+DEBUG 2019-05-14 20:03:33,244: 	 Found CMSSW_9_4_6_patch1 for slc6_amd64_gcc630 with base /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1
+DEBUG 2019-05-14 20:03:33,244: 	 Making tarball in /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/inputs/1e53218f-f5c3-41e7-a77b-f360e9c44d9bdefault.tgz
+DEBUG 2019-05-14 20:03:33,281: 	 Checking directory /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/lib
+DEBUG 2019-05-14 20:03:33,281: 	 Adding directory /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/lib to tarball
+DEBUG 2019-05-14 20:03:33,341: 	 Checking directory /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/biglib
+DEBUG 2019-05-14 20:03:33,341: 	 Adding directory /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/biglib to tarball
+DEBUG 2019-05-14 20:03:33,343: 	 Checking directory /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/module
+DEBUG 2019-05-14 20:03:34,211: 	 Uploading archive /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/inputs/1e53218f-f5c3-41e7-a77b-f360e9c44d9bdefault.tgz (165 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2019-05-14 20:03:35,957: 	 Loading required information from the environment
+DEBUG 2019-05-14 20:03:35,957: 	 Found CMSSW_9_4_6_patch1 for slc6_amd64_gcc630 with base /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1
+DEBUG 2019-05-14 20:03:35,957: 	 Making tarball in /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/inputs/debugFiles.tgz
+DEBUG 2019-05-14 20:03:35,964: 	 Uploading archive /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/inputs/debugFiles.tgz (1 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2019-05-14 20:03:36,843: 	 Result uploading input files: 1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz 
+INFO 2019-05-14 20:03:36,844: 	 Sending the request to the server
+DEBUG 2019-05-14 20:03:36,844: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 1, 'useparent': 0, 'asyncdest': 'T3_US_FNALLPC', 'algoargs': 20, 'cachefilename': '1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_9_4_6_patch1', 'edmoutfiles': [], 'userfiles': [], 'primarydataset': '', 'inputdata': '/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', 'lfn': '/store/user/npoudyal/', 'dryrun': 0, 'workflow': 'crab_higgs_cc_May14', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'nonprodsw': 0, 'tfileoutfiles': ['ReClustered.root'], 'oneEventMode': 0, 'debugfilename': '7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', 'saveoutput': 1, 'publication': 0, 'jobarch': 'slc6_amd64_gcc630', 'totalunits': 0, 'splitalgo': 'FileBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': 'CRAB3_higgs_cc_May14'} 
+DEBUG 2019-05-14 20:03:36,844: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=1&useparent=0&asyncdest=T3_US_FNALLPC&algoargs=20&cachefilename=1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_9_4_6_patch1&primarydataset=&inputdata=%2FGluGluHToCC_M125_13TeV_powheg_pythia8%2FRunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2%2FMINIAODSIM&lfn=%2Fstore%2Fuser%2Fnpoudyal%2F&dryrun=0&workflow=crab_higgs_cc_May14&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&nonprodsw=0&oneEventMode=0&debugfilename=7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz&saveoutput=1&publication=0&jobarch=slc6_amd64_gcc630&totalunits=0&splitalgo=FileBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=CRAB3_higgs_cc_May14&tfileoutfiles=ReClustered.root
+DEBUG 2019-05-14 20:03:37,778: 	 Result: {u'result': [{u'RequestName': u'190515_010337:npoudyal_crab_higgs_cc_May14'}]}
+INFO 2019-05-14 20:03:37,780: 	 Success: Your task has been delivered to the CRAB3 server.
+INFO 2019-05-14 20:03:37,781: 	 Task name: 190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:03:37,781: 	 Project dir: AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:03:37,781: 	 Please use 'crab status -d AllAboutHCC_crab/crab_higgs_cc_May14' to check how the submission process proceeds.
+DEBUG 2019-05-14 20:03:37,781: 	 About to return
+INFO 2019-05-14 20:03:37,784: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:03:50,274: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:03:50,274: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:03:50,281: 	 Checking credentials
+DEBUG 2019-05-14 20:03:50,281: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:50,282: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:50,384: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42998
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:50,487: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42997
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:50,487: 	 Proxy lifetime 42998 secs is different from voms extension lifetime 42997 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:50,487: 	 Proxy valid for 11:56:37 hours
+DEBUG 2019-05-14 20:03:50,597: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:50,597: 	 Checking credentials
+DEBUG 2019-05-14 20:03:50,597: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:50,597: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:50,699: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42998
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:50,802: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42997
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:50,803: 	 Proxy lifetime 42998 secs is different from voms extension lifetime 42997 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:50,803: 	 Proxy valid for 11:56:37 hours
+DEBUG 2019-05-14 20:03:51,658: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:03:51,765: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:51,765: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:03:51,765: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:03:52,669: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 502:00:36  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:52,670: 	 Myproxy is valid: 1807236
+DEBUG 2019-05-14 20:03:52,672: 	 Command use: status
+DEBUG 2019-05-14 20:03:52,672: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:03:53,517: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:03:53,517: 	 Instance is prod
+DEBUG 2019-05-14 20:03:53,517: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:03:53,517: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:03:54,326: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'NEW', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'None', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'None', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'None', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'None', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'None', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:03:54,327: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:03:54,327: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:03:54,327: 	 Grid scheduler - Task Worker:	N/A yet - N/A yet
+INFO 2019-05-14 20:03:54,327: 	 Status on the CRAB server:	NEW on command SUBMIT
+INFO 2019-05-14 20:03:54,327: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:03:54,327: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:03:54,327: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:03:54,327: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:03:54,327: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2019-05-14 20:03:54,359: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:03:57,597: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:03:57,598: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:03:57,604: 	 Checking credentials
+DEBUG 2019-05-14 20:03:57,604: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:57,604: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:57,707: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42991
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:57,809: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42990
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:57,810: 	 Proxy lifetime 42991 secs is different from voms extension lifetime 42990 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:57,810: 	 Proxy valid for 11:56:30 hours
+DEBUG 2019-05-14 20:03:57,919: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:57,919: 	 Checking credentials
+DEBUG 2019-05-14 20:03:57,919: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:57,919: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:03:58,022: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42991
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:58,125: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42989
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:58,125: 	 Proxy lifetime 42991 secs is different from voms extension lifetime 42989 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:03:58,125: 	 Proxy valid for 11:56:29 hours
+DEBUG 2019-05-14 20:03:58,915: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:03:59,021: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:59,021: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:03:59,021: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:03:59,925: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 502:00:29  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:03:59,926: 	 Myproxy is valid: 1807229
+DEBUG 2019-05-14 20:03:59,927: 	 Command use: status
+DEBUG 2019-05-14 20:03:59,927: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:04:00,847: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:04:00,847: 	 Instance is prod
+DEBUG 2019-05-14 20:04:00,847: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:04:00,847: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:04:01,646: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'NEW', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'None', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'None', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'None', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'None', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'None', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:04:01,647: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:04:01,647: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:04:01,647: 	 Grid scheduler - Task Worker:	N/A yet - N/A yet
+INFO 2019-05-14 20:04:01,647: 	 Status on the CRAB server:	NEW on command SUBMIT
+INFO 2019-05-14 20:04:01,647: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:04:01,647: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:04:01,647: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:04:01,647: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:04:01,647: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2019-05-14 20:04:01,655: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:09:13,741: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:09:13,741: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:09:13,751: 	 Checking credentials
+DEBUG 2019-05-14 20:09:13,751: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:13,751: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:09:13,854: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42675
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:13,957: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42674
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:13,957: 	 Proxy lifetime 42675 secs is different from voms extension lifetime 42674 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:13,957: 	 Proxy valid for 11:51:14 hours
+DEBUG 2019-05-14 20:09:14,067: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:14,067: 	 Checking credentials
+DEBUG 2019-05-14 20:09:14,067: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:14,067: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:09:14,170: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42674
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:14,273: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42673
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:14,273: 	 Proxy lifetime 42674 secs is different from voms extension lifetime 42673 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:14,273: 	 Proxy valid for 11:51:13 hours
+DEBUG 2019-05-14 20:09:15,080: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:09:15,187: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:15,187: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:09:15,187: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:09:16,191: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:55:12  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:16,192: 	 Myproxy is valid: 1806912
+DEBUG 2019-05-14 20:09:16,193: 	 Command use: status
+DEBUG 2019-05-14 20:09:16,193: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:09:16,994: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:09:16,994: 	 Instance is prod
+DEBUG 2019-05-14 20:09:16,994: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:09:16,994: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:09:17,827: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:09:17,828: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:09:17,828: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:17,828: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:09:17,828: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:09:17,828: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:17,828: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:17,828: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:17,828: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:09:17,828: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:09:17,828: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:09:18,610: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:09:18,610: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:09:19,400: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2019-05-14 20:09:19,401: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:09:19,401: 	 
+Jobs status:                    idle         		100.0% (10/10)
+INFO 2019-05-14 20:09:19,401: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:09:19,416: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:09:36,248: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:09:36,248: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:09:36,254: 	 Checking credentials
+DEBUG 2019-05-14 20:09:36,254: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:36,254: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:09:36,356: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42652
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:36,459: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42651
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:36,459: 	 Proxy lifetime 42652 secs is different from voms extension lifetime 42651 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:36,459: 	 Proxy valid for 11:50:51 hours
+DEBUG 2019-05-14 20:09:36,569: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:36,569: 	 Checking credentials
+DEBUG 2019-05-14 20:09:36,569: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:36,569: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:09:36,671: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 42652
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:36,774: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 42651
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:36,774: 	 Proxy lifetime 42652 secs is different from voms extension lifetime 42651 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:09:36,774: 	 Proxy valid for 11:50:51 hours
+DEBUG 2019-05-14 20:09:37,563: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:09:37,669: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:37,670: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:09:37,670: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:09:38,573: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:54:50  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:09:38,574: 	 Myproxy is valid: 1806890
+DEBUG 2019-05-14 20:09:38,575: 	 Command use: status
+DEBUG 2019-05-14 20:09:38,575: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:09:39,380: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:09:39,380: 	 Instance is prod
+DEBUG 2019-05-14 20:09:39,380: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:09:39,380: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:09:40,175: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:09:40,176: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:09:40,176: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:40,176: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:09:40,176: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:09:40,176: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:40,176: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:40,176: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:09:40,177: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:09:40,177: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:09:40,177: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:09:40,969: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:09:40,969: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:09:41,733: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '1': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '3': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '2': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '5': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '4': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '7': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '6': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '9': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}, '8': {'Retries': 0, 'WallDurations': [0], 'StartTimes': [], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [0], 'TotalUserCpuTimeHistory': [0.0], 'SiteHistory': ['Unknown'], 'TotalSysCpuTimeHistory': [0.0]}}
+INFO 2019-05-14 20:09:41,733: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:09:41,734: 	 
+Jobs status:                    idle         		100.0% (10/10)
+INFO 2019-05-14 20:09:41,734: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:09:41,741: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:25:39,161: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:25:39,162: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:25:39,176: 	 Checking credentials
+DEBUG 2019-05-14 20:25:39,177: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:25:39,177: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:25:39,280: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 41689
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:39,382: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 41688
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:39,382: 	 Proxy lifetime 41689 secs is different from voms extension lifetime 41688 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:25:39,383: 	 Proxy valid for 11:34:48 hours
+DEBUG 2019-05-14 20:25:39,492: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:39,492: 	 Checking credentials
+DEBUG 2019-05-14 20:25:39,492: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:25:39,492: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:25:39,595: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 41689
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:39,698: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 41688
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:39,698: 	 Proxy lifetime 41689 secs is different from voms extension lifetime 41688 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:25:39,698: 	 Proxy valid for 11:34:48 hours
+DEBUG 2019-05-14 20:25:40,488: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:25:40,594: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:40,594: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:25:40,594: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:25:41,398: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:38:47  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:25:41,399: 	 Myproxy is valid: 1805927
+DEBUG 2019-05-14 20:25:41,400: 	 Command use: status
+DEBUG 2019-05-14 20:25:41,400: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:25:42,190: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:25:42,190: 	 Instance is prod
+DEBUG 2019-05-14 20:25:42,190: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:25:42,190: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:25:42,972: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:25:42,973: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:25:42,973: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:25:42,973: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:25:42,973: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:25:42,973: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:25:42,973: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:25:42,973: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:25:42,973: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:25:42,973: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:25:42,973: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:25:43,768: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:25:43,769: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:25:44,524: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 310.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [860160], 'TotalUserCpuTimeHistory': [242.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}, '1': {'Retries': 0, 'WallDurations': [8.0, 308.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [852468], 'TotalUserCpuTimeHistory': [246.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}, '3': {'Retries': 0, 'WallDurations': [9.0, 309.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [828784], 'TotalUserCpuTimeHistory': [247.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [5.0]}, '2': {'Retries': 0, 'WallDurations': [9.0, 310.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [863672], 'TotalUserCpuTimeHistory': [246.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 310.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [827272], 'TotalUserCpuTimeHistory': [253.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [10.0]}, '4': {'Retries': 0, 'WallDurations': [9.0, 310.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [853052], 'TotalUserCpuTimeHistory': [253.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 309.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [861220], 'TotalUserCpuTimeHistory': [228.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [5.0]}, '6': {'Retries': 0, 'WallDurations': [8.0, 308.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [863020], 'TotalUserCpuTimeHistory': [244.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [5.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 309.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [843096], 'TotalUserCpuTimeHistory': [238.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [5.0]}, '8': {'Retries': 0, 'WallDurations': [8.0, 308.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [864412], 'TotalUserCpuTimeHistory': [236.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}}
+INFO 2019-05-14 20:25:44,524: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:25:44,524: 	 
+Jobs status:                    running      		100.0% (10/10)
+INFO 2019-05-14 20:25:44,525: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:25:44,554: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:31:53,022: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:31:53,022: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:31:53,038: 	 Checking credentials
+DEBUG 2019-05-14 20:31:53,038: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:31:53,038: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:31:53,140: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 41315
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:53,243: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 41314
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:53,243: 	 Proxy lifetime 41315 secs is different from voms extension lifetime 41314 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:31:53,243: 	 Proxy valid for 11:28:34 hours
+DEBUG 2019-05-14 20:31:53,354: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:53,354: 	 Checking credentials
+DEBUG 2019-05-14 20:31:53,355: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:31:53,355: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:31:53,457: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 41315
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:53,559: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 41314
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:53,560: 	 Proxy lifetime 41315 secs is different from voms extension lifetime 41314 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:31:53,560: 	 Proxy valid for 11:28:34 hours
+DEBUG 2019-05-14 20:31:54,339: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:31:54,446: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:54,446: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:31:54,446: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:31:55,650: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:32:33  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:31:55,651: 	 Myproxy is valid: 1805553
+DEBUG 2019-05-14 20:31:55,652: 	 Command use: status
+DEBUG 2019-05-14 20:31:55,652: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:31:56,606: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:31:56,606: 	 Instance is prod
+DEBUG 2019-05-14 20:31:56,606: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:31:56,606: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:31:57,415: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:31:57,416: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:31:57,416: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:31:57,416: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:31:57,416: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:31:57,416: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:31:57,416: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:31:57,416: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:31:57,416: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:31:57,416: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:31:57,416: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:31:58,203: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:31:58,203: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:31:58,956: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 612.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [860160], 'TotalUserCpuTimeHistory': [545.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '1': {'Retries': 0, 'WallDurations': [8.0, 608.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [862392], 'TotalUserCpuTimeHistory': [540.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '3': {'Retries': 0, 'WallDurations': [9.0, 609.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [828784], 'TotalUserCpuTimeHistory': [531.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [9.0]}, '2': {'Retries': 0, 'WallDurations': [9.0, 611.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [863672], 'TotalUserCpuTimeHistory': [533.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 611.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [827388], 'TotalUserCpuTimeHistory': [523.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [19.0]}, '4': {'Retries': 0, 'WallDurations': [9.0, 611.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [853700], 'TotalUserCpuTimeHistory': [551.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 609.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [863016], 'TotalUserCpuTimeHistory': [506.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '6': {'Retries': 0, 'WallDurations': [8.0, 609.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [863160], 'TotalUserCpuTimeHistory': [518.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [8.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 609.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [843324], 'TotalUserCpuTimeHistory': [529.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [9.0]}, '8': {'Retries': 0, 'WallDurations': [8.0, 308.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [864412], 'TotalUserCpuTimeHistory': [236.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [4.0]}}
+INFO 2019-05-14 20:31:58,956: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:31:58,957: 	 
+Jobs status:                    running      		100.0% (10/10)
+INFO 2019-05-14 20:31:58,957: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:31:58,973: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:55:20,490: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:55:20,490: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:55:20,507: 	 Checking credentials
+DEBUG 2019-05-14 20:55:20,508: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:55:20,508: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:55:20,610: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 39908
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:20,713: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 39907
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:20,713: 	 Proxy lifetime 39908 secs is different from voms extension lifetime 39907 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:55:20,713: 	 Proxy valid for 11:05:07 hours
+DEBUG 2019-05-14 20:55:20,824: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:20,824: 	 Checking credentials
+DEBUG 2019-05-14 20:55:20,824: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:55:20,824: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:55:20,926: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 39908
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:21,029: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 39907
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:21,029: 	 Proxy lifetime 39908 secs is different from voms extension lifetime 39907 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:55:21,029: 	 Proxy valid for 11:05:07 hours
+DEBUG 2019-05-14 20:55:21,814: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:55:21,920: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:21,920: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:55:21,920: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:55:22,925: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:09:06  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:55:22,926: 	 Myproxy is valid: 1804146
+DEBUG 2019-05-14 20:55:22,927: 	 Command use: status
+DEBUG 2019-05-14 20:55:22,927: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:55:23,737: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:55:23,737: 	 Instance is prod
+DEBUG 2019-05-14 20:55:23,737: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:55:23,737: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:55:24,526: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:55:24,526: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:55:24,526: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:55:24,526: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:55:24,526: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:55:24,526: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:55:24,526: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:55:24,526: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:55:24,527: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:55:24,527: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:55:24,527: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:55:25,307: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:55:25,307: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:55:26,062: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 2113.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [886640], 'TotalUserCpuTimeHistory': [1999.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [27.0]}, '1': {'Retries': 0, 'WallDurations': [8.0, 2109.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [911492], 'TotalUserCpuTimeHistory': [1972.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '3': {'Retries': 0, 'WallDurations': [9.0, 2112.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [833232], 'TotalUserCpuTimeHistory': [1981.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [32.0]}, '2': {'Retries': 0, 'WallDurations': [9.0, 2111.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [874588], 'TotalUserCpuTimeHistory': [1937.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 1511.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [857308], 'TotalUserCpuTimeHistory': [1375.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [46.0]}, '4': {'Retries': 0, 'WallDurations': [9.0, 1211.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [858996], 'TotalUserCpuTimeHistory': [1128.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [15.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 2113.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [865224], 'TotalUserCpuTimeHistory': [1948.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [25.0]}, '6': {'Retries': 0, 'WallDurations': [8.0, 2113.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [867892], 'TotalUserCpuTimeHistory': [1912.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 1809.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [843324], 'TotalUserCpuTimeHistory': [1686.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '8': {'Retries': 0, 'WallDurations': [8.0, 909.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [906460], 'TotalUserCpuTimeHistory': [798.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [10.0]}}
+INFO 2019-05-14 20:55:26,062: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:55:26,062: 	 
+Jobs status:                    running      		100.0% (10/10)
+INFO 2019-05-14 20:55:26,062: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:55:26,078: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 20:56:48,421: 	 Executing command: 'status'
+DEBUG 2019-05-14 20:56:48,421: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 20:56:48,433: 	 Checking credentials
+DEBUG 2019-05-14 20:56:48,433: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:56:48,433: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:56:48,536: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 39820
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:48,638: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 39819
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:48,638: 	 Proxy lifetime 39820 secs is different from voms extension lifetime 39819 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:56:48,638: 	 Proxy valid for 11:03:39 hours
+DEBUG 2019-05-14 20:56:48,749: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:48,749: 	 Checking credentials
+DEBUG 2019-05-14 20:56:48,749: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:56:48,749: 	 Getting proxy life time left
+DEBUG 2019-05-14 20:56:48,852: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 39820
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:48,954: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 39819
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:48,954: 	 Proxy lifetime 39820 secs is different from voms extension lifetime 39819 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 20:56:48,954: 	 Proxy valid for 11:03:39 hours
+DEBUG 2019-05-14 20:56:51,921: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 20:56:52,027: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:52,028: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 20:56:52,028: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 20:56:53,032: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 501:07:36  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 20:56:53,033: 	 Myproxy is valid: 1804056
+DEBUG 2019-05-14 20:56:53,034: 	 Command use: status
+DEBUG 2019-05-14 20:56:53,034: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 20:56:53,825: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 20:56:53,825: 	 Instance is prod
+DEBUG 2019-05-14 20:56:53,825: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 20:56:53,825: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 20:58:00,691: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 20:58:00,691: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 20:58:00,691: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:58:00,691: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 20:58:00,691: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 20:58:00,692: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:58:00,692: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:58:00,692: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 20:58:00,692: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 20:58:00,692: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 20:58:00,692: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:58:01,495: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 20:58:01,495: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 20:58:02,253: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 2113.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [886640], 'TotalUserCpuTimeHistory': [1999.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [27.0]}, '1': {'Retries': 0, 'WallDurations': [8.0, 2109.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [911492], 'TotalUserCpuTimeHistory': [1972.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '3': {'Retries': 0, 'WallDurations': [9.0, 2413.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [848384], 'TotalUserCpuTimeHistory': [2261.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [36.0]}, '2': {'Retries': 0, 'WallDurations': [9.0, 2412.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [875132], 'TotalUserCpuTimeHistory': [2226.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [30.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 1511.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [857308], 'TotalUserCpuTimeHistory': [1375.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [46.0]}, '4': {'Retries': 0, 'WallDurations': [9.0, 1211.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [858996], 'TotalUserCpuTimeHistory': [1128.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [15.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 2415.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [871076], 'TotalUserCpuTimeHistory': [2231.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [28.0]}, '6': {'Retries': 0, 'WallDurations': [8.0, 2113.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [867892], 'TotalUserCpuTimeHistory': [1912.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 2409.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [847128], 'TotalUserCpuTimeHistory': [2264.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [35.0]}, '8': {'Retries': 0, 'WallDurations': [8.0, 909.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [906460], 'TotalUserCpuTimeHistory': [798.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [10.0]}}
+INFO 2019-05-14 20:58:02,253: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 20:58:02,253: 	 
+Jobs status:                    running      		100.0% (10/10)
+INFO 2019-05-14 20:58:02,253: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 20:58:02,279: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-14 21:16:19,416: 	 Executing command: 'status'
+DEBUG 2019-05-14 21:16:19,417: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-14 21:16:19,429: 	 Checking credentials
+DEBUG 2019-05-14 21:16:19,430: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 21:16:19,430: 	 Getting proxy life time left
+DEBUG 2019-05-14 21:16:19,532: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 38649
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:19,635: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 38648
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:19,635: 	 Proxy lifetime 38649 secs is different from voms extension lifetime 38648 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 21:16:19,635: 	 Proxy valid for 10:44:08 hours
+DEBUG 2019-05-14 21:16:19,746: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:19,746: 	 Checking credentials
+DEBUG 2019-05-14 21:16:19,746: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 21:16:19,746: 	 Getting proxy life time left
+DEBUG 2019-05-14 21:16:19,848: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 38649
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:20,151: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 38647
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:20,152: 	 Proxy lifetime 38649 secs is different from voms extension lifetime 38647 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-14 21:16:20,152: 	 Proxy valid for 10:44:07 hours
+DEBUG 2019-05-14 21:16:20,948: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-14 21:16:21,055: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:21,055: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-14 21:16:21,055: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-14 21:16:22,059: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 500:48:07  (20.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-14 21:16:22,060: 	 Myproxy is valid: 1802887
+DEBUG 2019-05-14 21:16:22,061: 	 Command use: status
+DEBUG 2019-05-14 21:16:22,061: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14']
+DEBUG 2019-05-14 21:16:23,875: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-14 21:16:23,875: 	 Instance is prod
+DEBUG 2019-05-14 21:16:23,875: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-14 21:16:23,875: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-14 21:16:24,674: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-14 21:16:24,674: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-14 21:16:24,674: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 21:16:24,674: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-14 21:16:24,675: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-14 21:16:24,675: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 21:16:24,675: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 21:16:24,675: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-14 21:16:24,675: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-14 21:16:24,675: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-14 21:16:24,675: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 21:16:25,454: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-14 21:16:25,454: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-14 21:16:26,214: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 3313.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [886640], 'TotalUserCpuTimeHistory': [3162.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [43.0]}, '1': {'Retries': 0, 'WallDurations': [8.0, 2109.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [911492], 'TotalUserCpuTimeHistory': [1972.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [26.0]}, '3': {'Retries': 0, 'WallDurations': [9.0, 3015.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [848384], 'TotalUserCpuTimeHistory': [2849.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [46.0]}, '2': {'Retries': 0, 'WallDurations': [9.0, 3012.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323328.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [917300], 'TotalUserCpuTimeHistory': [2752.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [37.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 3012.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [895540], 'TotalUserCpuTimeHistory': [2776.0], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [91.0]}, '4': {'Retries': 0, 'WallDurations': [9.0, 3011.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323333.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [858996], 'TotalUserCpuTimeHistory': [2874.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [38.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 3316.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [872276], 'TotalUserCpuTimeHistory': [3083.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [39.0]}, '6': {'Retries': 0, 'WallDurations': [8.0, 3314.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323331.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [867892], 'TotalUserCpuTimeHistory': [3082.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [40.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 3011.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [851784], 'TotalUserCpuTimeHistory': [2846.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [45.0]}, '8': {'Retries': 0, 'WallDurations': [8.0, 3311.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323335.0'], 'EndTimes': [], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [907212], 'TotalUserCpuTimeHistory': [3036.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [39.0]}}
+INFO 2019-05-14 21:16:26,215: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-14 21:16:26,215: 	 
+Jobs status:                    running      		100.0% (10/10)
+INFO 2019-05-14 21:16:26,215: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-14 21:16:26,234: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
+DEBUG 2019-05-15 09:17:28,091: 	 Executing command: 'status'
+DEBUG 2019-05-15 09:17:28,092: 	 Found CRAB cache file /uscms/home/npoudyal/.crab3
+DEBUG 2019-05-15 09:17:28,120: 	 Checking credentials
+DEBUG 2019-05-15 09:17:28,121: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-15 09:17:28,121: 	 Getting proxy life time left
+DEBUG 2019-05-15 09:17:28,324: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:28,325: 	 Proxy valid for 00:00:00 hours
+DEBUG 2019-05-15 09:17:28,325: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2019-05-15 09:17:36,845: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2019-05-15 09:17:36,949: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,053: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,053: 	 Proxy lifetime 86400 secs is different from voms extension lifetime 86399 secs for proxy: /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-15 09:17:37,156: 	 Executing : 
+ command : env X509_USER_PROXY=/uscms/home/npoudyal/x509up_u49587 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+/cms/uscms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,157: 	 Proxy created.
+DEBUG 2019-05-15 09:17:37,270: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,271: 	 Checking credentials
+DEBUG 2019-05-15 09:17:37,271: 	 Found proxy file /uscms/home/npoudyal/x509up_u49587
+DEBUG 2019-05-15 09:17:37,271: 	 Getting proxy life time left
+DEBUG 2019-05-15 09:17:37,374: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -timeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,478: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/npoudyal/x509up_u49587 -actimeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:37,478: 	 Proxy valid for 23:59:59 hours
+DEBUG 2019-05-15 09:17:38,302: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2019-05-15 09:17:38,411: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:38,412: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2019-05-15 09:17:38,412: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal_cmsweb.cern.ch for credential name
+DEBUG 2019-05-15 09:17:39,517: 	 Executing : 
+ command : myproxy-info -l db8bc4a976f4f1a219d0e119a4bd179c11a41b9c -s myproxy.cern.ch
+ output : username: db8bc4a976f4f1a219d0e119a4bd179c11a41b9c
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 488:46:49  (20.4 days)
+
+ error: 
+ retcode : 0
+DEBUG 2019-05-15 09:17:39,519: 	 Myproxy is valid: 1759609
+DEBUG 2019-05-15 09:17:39,520: 	 Command use: status
+DEBUG 2019-05-15 09:17:39,520: 	 Options use: ['-d', 'AllAboutHCC_crab/crab_higgs_cc_May14/']
+DEBUG 2019-05-15 09:17:40,321: 	 CRABClient version: 3.3.1904
+DEBUG 2019-05-15 09:17:40,321: 	 Instance is prod
+DEBUG 2019-05-15 09:17:40,321: 	 Server base url is cmsweb.cern.ch
+DEBUG 2019-05-15 09:17:40,321: 	 Command url /crabserver/prod/workflow
+DEBUG 2019-05-15 09:17:41,120: 	 Got information from server oracle database: {u'result': [u'190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2019-05-15 01:03:37.717929', u'None', u'2019-05-15 01:05:27.724725', u'None', u'CMSSW_9_4_6_patch1', u'slc6_amd64_gcc630', u'/GluGluHToCC_M125_13TeV_powheg_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM', u'F', u'0', u'[]', u'[]', u'FileBased', u"{'splitOnRun': False, 'halt_job_on_file_boundaries': False, 'files_per_job': 20, 'runs': [], 'lumis': []}", u'1c72374b528a1380cf694b9f3ba3a7cacfd82183d83b272f842cc052d5fcf1c0.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'npoudyal', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=npoudyal/CN=762448/CN=Nabin Poudyal', u'cms', u'None', u'None', u'CRAB3_higgs_cc_May14-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'F', u'[]', u"['ReClustered.root']", u'[]', u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv221.fnal.gov:9620', u'crab3@vocms0144.cern.ch', u'F', u'[]', u'T', u'/store/user/npoudyal/', u'F', u'None', u'F', u'None', u'GluGluHToCC_M125_13TeV_powheg_pythia8', u'None', u'7eda7776536926b97fc8ed6d27120749145affd34dfab22801e044acbcc5c6fa.tar.gz', u'39323326', u'filetransfers', u'F', u'131.225.189.208', u'0.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2019-05-15 09:17:41,121: 	 CRAB project directory:		/uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14
+INFO 2019-05-15 09:17:41,121: 	 Task name:			190515_010337:npoudyal_crab_higgs_cc_May14
+INFO 2019-05-15 09:17:41,121: 	 Grid scheduler - Task Worker:	crab3@vocms0144.cern.ch - crab-prod-tw01
+INFO 2019-05-15 09:17:41,121: 	 Status on the CRAB server:	SUBMITTED
+INFO 2019-05-15 09:17:41,121: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-15 09:17:41,121: 	 Dashboard monitoring URL:	http://dashb-cms-job.cern.ch/dashboard/templates/task-analysis/#user=npoudyal&refresh=0&table=Jobs&p=1&records=25&activemenu=2&status=&site=&tid=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-15 09:17:41,121: 	 New dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=npoudyal&var-task=190515_010337%3Anpoudyal_crab_higgs_cc_May14
+INFO 2019-05-15 09:17:41,121: 	 In case of issues with the new dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2019-05-15 09:17:41,121: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 39323326)
+DEBUG 2019-05-15 09:17:41,121: 	 Webdir is located at http://vocms0144.cern.ch/mon/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-15 09:17:42,931: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14
+DEBUG 2019-05-15 09:17:42,931: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0144/cms1462/190515_010337:npoudyal_crab_higgs_cc_May14/status_cache
+DEBUG 2019-05-15 09:17:43,768: 	 Got information from status cache file: {'10': {'Retries': 0, 'WallDurations': [9.0, 6253.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323337.0'], 'EndTimes': [1557889060.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [891380], 'TotalUserCpuTimeHistory': [5984], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [86]}, '1': {'Retries': 0, 'WallDurations': [8.0, 34712.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323330.0'], 'EndTimes': [1557917520.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [921844], 'TotalUserCpuTimeHistory': [31196], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [419]}, '3': {'Retries': 0, 'WallDurations': [9.0, 43209.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323334.0'], 'EndTimes': [1557926158.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [848384], 'TotalUserCpuTimeHistory': [41581], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [692]}, '2': {'Retries': 1, 'WallDurations': [9.0, 24333.0, 2411.0], 'StartTimes': [1557882807.0, 1557907249.0], 'SubmitTimes': [1557882339.0, 1557907209.0], 'JobIds': ['39323328.0', '39345957.0'], 'EndTimes': [1557907140.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [917612, 868252], 'TotalUserCpuTimeHistory': [22720, 1545.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC', 'T2_US_UCSD'], 'TotalSysCpuTimeHistory': [296, 50.0]}, '5': {'Retries': 0, 'WallDurations': [9.0, 33205.0], 'StartTimes': [1557882949.0], 'SubmitTimes': [1557882341.0], 'JobIds': ['39323336.0'], 'EndTimes': [1557916154.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [895540], 'TotalUserCpuTimeHistory': [30625], 'SiteHistory': ['Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [1062]}, '4': {'Retries': 2, 'WallDurations': [9.0, 24332.0, 3871.0, 10.0, 6021.0], 'StartTimes': [1557882808.0, 1557907262.0, 1557911640.0], 'SubmitTimes': [1557882340.0, 1557907209.0, 1557911259.0], 'JobIds': ['39323333.0', '39345956.0', '39347726.0'], 'EndTimes': [1557907140.0, 1557911133.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [912888, 870884, 882264], 'TotalUserCpuTimeHistory': [22875, 1917, 5391.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC', 'T2_US_Caltech', 'Unknown', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [297, 44, 204.0]}, '7': {'Retries': 0, 'WallDurations': [9.0, 33007.0], 'StartTimes': [1557882808.0], 'SubmitTimes': [1557882339.0], 'JobIds': ['39323329.0'], 'EndTimes': [1557915815.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [907492], 'TotalUserCpuTimeHistory': [30825], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [401]}, '6': {'Retries': 1, 'WallDurations': [8.0, 23084.0, 19820.0], 'StartTimes': [1557882807.0, 1557906193.0], 'SubmitTimes': [1557882340.0, 1557905960.0], 'JobIds': ['39323331.0', '39345710.0'], 'EndTimes': [1557905891.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [910428, 878920], 'TotalUserCpuTimeHistory': [22097, 18587.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC', 'T1_US_FNAL'], 'TotalSysCpuTimeHistory': [281, 340.0]}, '9': {'Retries': 0, 'WallDurations': [9.0, 22423.0], 'StartTimes': [1557882807.0], 'SubmitTimes': [1557882340.0], 'JobIds': ['39323332.0'], 'EndTimes': [1557905230.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [886444], 'TotalUserCpuTimeHistory': [21454], 'SiteHistory': ['Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [341]}, '8': {'Retries': 2, 'WallDurations': [8.0, 24327.0, 5665.0, 9.0, 9836.0], 'StartTimes': [1557882807.0, 1557907260.0, 1557913664.0], 'SubmitTimes': [1557882340.0, 1557907203.0, 1557913054.0], 'JobIds': ['39323335.0', '39345955.0', '39348528.0'], 'EndTimes': [1557907134.0, 1557912925.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'running', 'ResidentSetSize': [907212, 818784, 908528], 'TotalUserCpuTimeHistory': [22668, 3677, 9215.0], 'SiteHistory': ['Unknown', 'T2_FR_IPHC', 'T2_US_Caltech', 'Unknown', 'T2_FR_IPHC'], 'TotalSysCpuTimeHistory': [299, 80, 126.0]}}
+INFO 2019-05-15 09:17:43,768: 	 Status on the scheduler:	SUBMITTED
+INFO 2019-05-15 09:17:43,768: 	 
+Jobs status:                    finished     		 60.0% ( 6/10)
+INFO 2019-05-15 09:17:43,769: 	 				running      		 40.0% ( 4/10)
+INFO 2019-05-15 09:17:43,769: 	 
+No publication information (publication has been disabled in the CRAB configuration file)
+INFO 2019-05-15 09:17:43,770: 	 
+Summary of run jobs:
+ * Memory: 900MB min, 900MB max, 871MB ave
+ * Runtime: 0:40:11 min, 12:00:09 max, 8:00:01 ave
+ * CPU eff: 91% min, 98% max, 95% ave
+ * Waste: 0:00:53 (0% of total)
+
+INFO 2019-05-15 09:17:43,914: 	 Log file is /uscms_data/d3/npoudyal/HCC/CMSSW_9_4_6_patch1/src/hTocc/Dhadron/test/AllAboutHCC_crab/crab_higgs_cc_May14/crab.log
