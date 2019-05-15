@@ -23,6 +23,8 @@
 #include <array>
 #include <algorithm>
 #include <string>
+
+#include "hTocc/Dhadron/plugins/Dhadron.h"
 // user include files
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/one/EDAnalyzer.h"
@@ -67,105 +69,14 @@
 #include "DataFormats/L1Trigger/interface/Jet.h"
 #include "DataFormats/L1Trigger/interface/EtSum.h"
 #include "DataFormats/L1Trigger/interface/Tau.h"
-//
-// class declaration
-//
 
-// If the analyzer does not use TFileService, please remove
-// the template argument to the base class so the class inherits
-// from  edm::one::EDAnalyzer<> and also remove the line from
-// constructor "usesResource("TFileService");"
-// This will improve performance in multithreaded jobs.
-
-class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
-  public:
-    explicit Dhadron(const edm::ParameterSet&);
-    ~Dhadron();
-
-    static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
-    
-  private:
-    virtual void beginJob() override;
-    virtual void analyze(const edm::Event&, const edm::EventSetup&) override;
-    virtual void endJob() override;
-
-    // ----------member data ---------------------------
-    edm::EDGetTokenT <std::vector<reco::Vertex>>      vtxToken_;
-    edm::EDGetTokenT <pat::ElectronCollection>        electronToken_;
-    edm::EDGetTokenT <pat::TauCollection>             tauToken_;
-    edm::EDGetTokenT <pat::MuonCollection>            muonToken_;
-    edm::EDGetTokenT <pat::PhotonCollection>          photonToken_;
-    edm::EDGetTokenT <pat::JetCollection>             jetToken_;
-    edm::EDGetTokenT <pat::METCollection>             metToken_;
-    edm::EDGetTokenT <pat::JetCollection>             fatjetToken_;
-    edm::EDGetTokenT <pat::PackedCandidateCollection> pfToken_;
-
-    edm::EDGetTokenT <pat::JetCollection>             ak1PFCHSjetToken_;
-    edm::EDGetTokenT <pat::JetCollection>             ak2PFCHSjetToken_;
-    
-    edm::EDGetTokenT <edm::TriggerResults>                        triggerBits_;
-    edm::EDGetTokenT <std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;
-    edm::EDGetTokenT <pat::PackedTriggerPrescales>                triggerPrescales_;
-    
-
-    edm::EDGetTokenT <l1t::EGammaBxCollection> l1EGammasToken_;
-    edm::EDGetTokenT <l1t::MuonBxCollection  > l1MuonsToken_;
-    edm::EDGetTokenT <l1t::JetBxCollection   > l1JetsToken_;
-    edm::EDGetTokenT <l1t::EtSumBxCollection > l1EtSumsToken_ ;
-    edm::EDGetTokenT <l1t::TauBxCollection   > l1TauToken_;
-
-
-    // edm::EDGetTokenT <reco::GenJetCollection>         ak4genjetToken_;
-
-    TH1D * h_ak1chs_pt      ;
-    TH1D * h_ak1chs_mass    ;
-    TH1D * h_ak1chs_numberOfDaughters;
-    TH1D * h_ak1chs_higgsMass;
-    TH1D * h_ak1chs_partonFlavour;
-    TH1D * h_ak1chs_Iso_dR5;
-
-    TH1D * h_ak2chs_pt      ;
-    TH1D * h_ak2chs_mass    ;
-    TH1D * h_ak2chs_numberOfDaughters;
-    TH1D * h_ak2chs_higgsMass;
-    TH1D * h_ak2chs_partonFlavour;
-    TH1D * h_ak2chs_Iso_dR5;
-
-    TH1D * h_ak4_pt      ;
-    TH1D * h_ak4_mass    ;
-    TH1D * h_ak4_numberOfDaughters;
-    TH1D * h_ak4chs_higgsMass;
-    TH1D * h_ak4chs_partonFlavour;
-    TH1D * h_ak4chs_Iso_dR5;
-
-    TH1D * h_ak1chs_pt_01      ;
-    TH1D * h_ak1chs_mass_01    ;
-    TH1D * h_ak1chs_numberOfDaughters_01;
-    TH1D * h_ak1chs_higgsMass1;
-    TH1D * h_ak1chs_partonFlavour_01;
-
-    TH1D * h_ak2chs_pt_01      ;
-    TH1D * h_ak2chs_mass_01    ;
-    TH1D * h_ak2chs_numberOfDaughters_01;
-    TH1D * h_ak2chs_higgsMass1;
-    TH1D * h_ak2chs_partonFlavour_01;
-
-    TH1D * h_ak4_pt_01      ;
-    TH1D * h_ak4_mass_01    ;
-    TH1D * h_ak4_numberOfDaughters_01;
-    TH1D * h_ak4chs_higgsMass1;
-    TH1D * h_ak4chs_partonFlavour_01;
-};
-//
 // constants, enums and typedefs
-//
-//
+
 // static data member definitions
-//
-//
+
 // constructors and destructor
-//
-Dhadron::Dhadron(const edm::ParameterSet& iConfig):
+Dhadron::Dhadron(const edm::ParameterSet& iConfig)
+  :
   vtxToken_     (consumes<std::vector<reco::Vertex>>      (iConfig.getParameter<edm::InputTag>("vertices"))),
   electronToken_(consumes<pat::ElectronCollection>        (iConfig.getParameter<edm::InputTag>("electrons"))),
   tauToken_     (consumes<pat::TauCollection>             (iConfig.getParameter<edm::InputTag>("taus"))),
@@ -177,7 +88,6 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig):
   pfToken_      (consumes<pat::PackedCandidateCollection> (iConfig.getParameter<edm::InputTag>("pfCands"))),
 
   ak1PFCHSjetToken_(consumes<pat::JetCollection>(edm::InputTag("selectedPatJetsAK1PFCHS"))),
-  ak2PFCHSjetToken_(consumes<pat::JetCollection>(edm::InputTag("selectedPatJetsAK2PFCHS"))),
 
   triggerBits_     (consumes<edm::TriggerResults>                       (edm::InputTag("TriggerResults","","HLT"))),
   triggerObjects_  (consumes<std::vector<pat::TriggerObjectStandAlone>> (edm::InputTag("selectedPatTrigger"))),
@@ -187,53 +97,84 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig):
   l1MuonsToken_   (consumes<l1t::MuonBxCollection  >(edm::InputTag("gmtStage2Digis:Muon"))),
   l1JetsToken_    (consumes<l1t::JetBxCollection   >(edm::InputTag("caloStage2Digis:Jet"))),
   l1EtSumsToken_  (consumes<l1t::EtSumBxCollection >(edm::InputTag("caloStage2Digis:EtSum"))),
-  l1TauToken_     (consumes<l1t::TauBxCollection   >(edm::InputTag("caloStage2Digis:Tau")))
+  l1TauToken_     (consumes<l1t::TauBxCollection   >(edm::InputTag("caloStage2Digis:Tau"))),
 
-  // ak4genjetToken_(consumes<reco::GenJetCollection>(edm::InputTag("slimmedGenJets")))
+  ak4genjetToken_     (consumes<reco::GenJetCollection           >(edm::InputTag("slimmedGenJets"))),
+  prunedGenParticles_ (consumes<reco::GenParticleCollection      >(edm::InputTag("prunedGenParticles"))),
+  packedGenParticles_ (consumes<pat::PackedGenParticleCollection >(edm::InputTag("packedGenParticles")))
+
+
+ 
 {
     //now do what ever initialization is needed
     usesResource("TFileService");
     edm::Service<TFileService> fs;
-    h_ak1chs_pt                = fs->make<TH1D>("h_ak1chs_pt"               ,"", 200,0,200); 
-    h_ak1chs_mass              = fs->make<TH1D>("h_ak1chs_mass"             ,"", 100,0,10); 
-    h_ak1chs_numberOfDaughters = fs->make<TH1D>("h_ak1chs_numberOfDaughters","", 10, 0,10); 
-    h_ak1chs_higgsMass         = fs->make<TH1D>("h_ak1chs_higgsMass"        ,"", 200,0,200); 
-    h_ak1chs_partonFlavour     = fs->make<TH1D>("h_ak1chs_partonFlavour"    ,"", 10,0,10); 
-    h_ak1chs_Iso_dR5           = fs->make<TH1D>("h_ak1chs_Iso_dR5"          ,"", 200,0,2); 
-
-    h_ak2chs_pt                = fs->make<TH1D>("h_ak2chs_pt"               ,"", 200,0,200);
-    h_ak2chs_mass              = fs->make<TH1D>("h_ak2chs_mass"             ,"", 100,0,10); 
-    h_ak2chs_numberOfDaughters = fs->make<TH1D>("h_ak2chs_numberOfDaughters","", 10, 0,10); 
-    h_ak2chs_higgsMass         = fs->make<TH1D>("h_ak2chs_higgsMass"        ,"", 200,0,200);
-    h_ak2chs_partonFlavour     = fs->make<TH1D>("h_ak2chs_partonFlavour"    ,"", 10,0,10); 
-    h_ak2chs_Iso_dR5           = fs->make<TH1D>("h_ak2chs_Iso_dR5"          ,"", 200,0,2); 
-
-    h_ak4_pt                   = fs->make<TH1D>("h_ak4_pt"                  ,"", 200,0,200); 
-    h_ak4_mass                 = fs->make<TH1D>("h_ak4_mass"                ,"", 100,0,10); 
-    h_ak4_numberOfDaughters    = fs->make<TH1D>("h_ak4_numberOfDaughters"   ,"", 10, 0,10); 
-    h_ak4chs_higgsMass         = fs->make<TH1D>("h_ak4chs_higgsMass"        ,"", 200,0,200);
-    h_ak4chs_partonFlavour     = fs->make<TH1D>("h_ak4chs_partonFlavour"    ,"", 10,0,10); 
-    h_ak4chs_Iso_dR5           = fs->make<TH1D>("h_ak4chs_Iso_dR5"          ,"", 200,0,2); 
-
-
-    h_ak1chs_pt_01                 = fs->make<TH1D>("h_ak1chs_pt_01 "               ,"", 200,0,200); 
-    h_ak1chs_mass_01               = fs->make<TH1D>("h_ak1chs_mass_01 "             ,"", 100,0,10); 
-    h_ak1chs_numberOfDaughters_01  = fs->make<TH1D>("h_ak1chs_numberOfDaughters_01 ","", 10, 0,10); 
-    h_ak1chs_higgsMass1          = fs->make<TH1D>("h_ak1chs_higgsMass1 "        ,"", 200,0,200); 
-    h_ak1chs_partonFlavour_01      = fs->make<TH1D>("h_ak1chs_partonFlavour_01 "    ,"", 10,0,10); 
-
-    h_ak2chs_pt_01                 = fs->make<TH1D>("h_ak2chs_pt_01 "               ,"", 200,0,200);
-    h_ak2chs_mass_01               = fs->make<TH1D>("h_ak2chs_mass_01 "             ,"", 100,0,10); 
-    h_ak2chs_numberOfDaughters_01  = fs->make<TH1D>("h_ak2chs_numberOfDaughters_01 ","", 10, 0,10); 
-    h_ak2chs_higgsMass1          = fs->make<TH1D>("h_ak2chs_higgsMass1 "        ,"", 200,0,200);
-    h_ak2chs_partonFlavour_01      = fs->make<TH1D>("h_ak2chs_partonFlavour_01 "    ,"", 10,0,10); 
-
-    h_ak4_pt_01                    = fs->make<TH1D>("h_ak4_pt_01 "                  ,"", 200,0,200); 
-    h_ak4_mass_01                  = fs->make<TH1D>("h_ak4_mass_01 "                ,"", 100,0,10); 
-    h_ak4_numberOfDaughters_01     = fs->make<TH1D>("h_ak4_numberOfDaughters_01 "   ,"", 10, 0,10); 
-    h_ak4chs_higgsMass1          = fs->make<TH1D>("h_ak4chs_higgsMass1 "        ,"", 200,0,200);
-    h_ak4chs_partonFlavour_01      = fs->make<TH1D>("h_ak4chs_partonFlavour_01 "    ,"", 10,0,10); 
-
+    // all info about L1 tau object per event
+    h_l1Tau_n                             = fs->make<TH1F>("h_l1Tau_n",     "h_l1Tau_n",     20,0.,20.)  ;
+    h_l1Tau_pt                            = fs->make<TH1F>("h_l1Tau_pt",    "h_l1Tau_pt" ,   200,0.,200.);
+    h_l1Tau_eta                           = fs->make<TH1F>("h_l1Tau_eta",   "h_l1Tau_eta",   32,-4.,4.)  ;
+    h_l1Tau_phi                           = fs->make<TH1F>("h_l1Tau_phi",   "h_l1Tau_phi",   32,-4.,4.)  ;
+    h_l1Tau_mt                            = fs->make<TH1F>("h_l1Tau_mt",    "h_l1Tau_mt",    200,0.,200) ;
+    h_l1Tau_energy                        = fs->make<TH1F>("h_l1Tau_energy","h_l1Tau_energy",200,0.,200) ;
+    h_l1Tau_isoEt                         = fs->make<TH1F>("h_l1Tau_isoEt", "h_l1Tau_isoEt", 200,0.,200) ;
+    h_l1Tau_hwIso                         = fs->make<TH1F>("h_l1Tau_hwIso", "h_l1Tau_hwIso", 200,0.,2)   ;
+    // if an event has 2 or 3 L1 tau, then below is the info about matched ak4chs jets with L1 tau
+    h_matched_ak4chs_n                    = fs->make<TH1F>("h_matched_ak4chs_n",                    "h_matched_ak4chs_n",                  20,0.,20.)  ;
+    h_matched_ak4chs_pt                   = fs->make<TH1F>("h_matched_ak4chs_pt",                   "h_matched_ak4chs_pt" ,                200,0.,200.); 
+    h_matched_ak4chs_mass                 = fs->make<TH1F>("h_matched_ak4chs_mass",                 "h_matched_ak4chs_mass" ,              200,0.,200.); 
+    h_matched_ak4chs_neutralMultiplicity  = fs->make<TH1F>("h_matched_ak4chs_neutralMultiplicity",  "h_matched_ak4chs_neutralMultiplicity",50,0.,50.)  ;
+    h_matched_ak4chs_chargedMultiplicity  = fs->make<TH1F>("h_matched_ak4chs_chargedMultiplicity",  "h_matched_ak4chs_chargedMultiplicity",50,0.,50.)  ;
+    h_matched_ak4chs_numberOfDaughters    = fs->make<TH1F>("h_matched_ak4chs_numberOfDaughters",    "h_matched_ak4chs_numberOfDaughters",  50,0.,50.)  ;
+    h_matched_ak4chs_partonFlavour        = fs->make<TH1F>("h_matched_ak4chs_partonFlavour",        "h_matched_ak4chs_partonFlavour",      25,0.,25.)  ;
+    h_matched_ak4chs_jetArea              = fs->make<TH1F>("h_matched_ak4chs_jetArea",              "h_matched_ak4chs_jetArea",            100,0.,1.)  ;
+    h_matched_ak4chs_charge               = fs->make<TH1F>("h_matched_ak4chs_charge",               "h_matched_ak4chs_charge",             40,-20.,20.);
+    h_matched_ak4chs_isolation            = fs->make<TH1F>("h_matched_ak4chs_isolation",            "h_matched_ak4chs_isolation",          200,0.,2.)  ;
+    // if an event has 2 or 3 matched ak4csh jet then below is the info about matched ak1chs jets with matched ak4chs with matched L1 tau
+    h_selected_ak4chs_n                   = fs->make<TH1F>("h_selected_ak4chs_n",                    "h_selected_ak4chs_n",                  20,0.,20.)  ;
+    h_selected_ak4chs_pt                  = fs->make<TH1F>("h_selected_ak4chs_pt",                   "h_selected_ak4chs_pt" ,                200,0.,200.); 
+    h_selected_ak4chs_mass                = fs->make<TH1F>("h_selected_ak4chs_mass",                 "h_selected_ak4chs_mass" ,              200,0.,200.); 
+    h_selected_ak4chs_neutralMultiplicity = fs->make<TH1F>("h_selected_ak4chs_neutralMultiplicity",  "h_selected_ak4chs_neutralMultiplicity",50,0.,50.)  ;
+    h_selected_ak4chs_chargedMultiplicity = fs->make<TH1F>("h_selected_ak4chs_chargedMultiplicity",  "h_selected_ak4chs_chargedMultiplicity",50,0.,50.)  ;
+    h_selected_ak4chs_numberOfDaughters   = fs->make<TH1F>("h_selected_ak4chs_numberOfDaughters",    "h_selected_ak4chs_numberOfDaughters",  50,0.,50.)  ;
+    h_selected_ak4chs_partonFlavour       = fs->make<TH1F>("h_selected_ak4chs_partonFlavour",        "h_selected_ak4chs_partonFlavour",      25,0.,25.)  ;
+    h_selected_ak4chs_jetArea             = fs->make<TH1F>("h_selected_ak4chs_jetArea",              "h_selected_ak4chs_jetArea",            100,0.,1.)  ;
+    h_selected_ak4chs_charge              = fs->make<TH1F>("h_selected_ak4chs_charge",               "h_selected_ak4chs_charge",             40,-20.,20.);
+    h_selected_ak4chs_isolation           = fs->make<TH1F>("h_selected_ak4chs_isolation",            "h_selected_ak4chs_isolation",          200,0.,2.)  ;
+    // matched with selected ak4chs
+    h_matched_ak1chs_n                    = fs->make<TH1F>("h_matched_ak1chs_n",                    "h_matched_ak1chs_n",                  20,0.,20.)  ;
+    h_matched_ak1chs_pt                   = fs->make<TH1F>("h_matched_ak1chs_pt",                   "h_matched_ak1chs_pt" ,                200,0.,200.); 
+    h_matched_ak1chs_mass                 = fs->make<TH1F>("h_matched_ak1chs_mass",                 "h_matched_ak1chs_mass" ,              200,0.,200.); 
+    h_matched_ak1chs_neutralMultiplicity  = fs->make<TH1F>("h_matched_ak1chs_neutralMultiplicity",  "h_matched_ak1chs_neutralMultiplicity",50,0.,50.)  ;
+    h_matched_ak1chs_chargedMultiplicity  = fs->make<TH1F>("h_matched_ak1chs_chargedMultiplicity",  "h_matched_ak1chs_chargedMultiplicity",50,0.,50.)  ;
+    h_matched_ak1chs_numberOfDaughters    = fs->make<TH1F>("h_matched_ak1chs_numberOfDaughters",    "h_matched_ak1chs_numberOfDaughters",  50,0.,50.)  ;
+    h_matched_ak1chs_partonFlavour        = fs->make<TH1F>("h_matched_ak1chs_partonFlavour",        "h_matched_ak1chs_partonFlavour",      25,0.,25.)  ;
+    h_matched_ak1chs_jetArea              = fs->make<TH1F>("h_matched_ak1chs_jetArea",              "h_matched_ak1chs_jetArea",            100,0.,1.)  ;
+    h_matched_ak1chs_charge               = fs->make<TH1F>("h_matched_ak1chs_charge",               "h_matched_ak1chs_charge",             40,-20.,20.);
+    h_matched_ak1chs_isolation            = fs->make<TH1F>("h_matched_ak1chs_isolation",            "h_matched_ak1chs_isolation",          200,0.,2.)  ;
+    // if the matched ak1 is isolated with 10%
+    h_isolated_ak1chs_n                   = fs->make<TH1F>("h_isolated_ak1chs_n",                    "h_isolated_ak1chs_n",                  20,0.,20.)  ;
+    // h_isolated_ak1chs_pt                  = fs->make<TH1F>("h_isolated_ak1chs_pt",                   "h_isolated_ak1chs_pt" ,                200,0.,200.); 
+    // h_isolated_ak1chs_mass                = fs->make<TH1F>("h_isolated_ak1chs_mass",                 "h_isolated_ak1chs_mass" ,              200,0.,200.); 
+    // h_isolated_ak1chs_neutralMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_neutralMultiplicity",  "h_isolated_ak1chs_neutralMultiplicity",50,0.,50.)  ;
+    // h_isolated_ak1chs_chargedMultiplicity = fs->make<TH1F>("h_isolated_ak1chs_chargedMultiplicity",  "h_isolated_ak1chs_chargedMultiplicity",50,0.,50.)  ;
+    // h_isolated_ak1chs_numberOfDaughters   = fs->make<TH1F>("h_isolated_ak1chs_numberOfDaughters",    "h_isolated_ak1chs_numberOfDaughters",  50,0.,50.)  ;
+    // h_isolated_ak1chs_partonFlavour       = fs->make<TH1F>("h_isolated_ak1chs_partonFlavour",        "h_isolated_ak1chs_partonFlavour",      25,0.,25.)  ;
+    // h_isolated_ak1chs_jetArea             = fs->make<TH1F>("h_isolated_ak1chs_jetArea",              "h_isolated_ak1chs_jetArea",            100,0.,1.)  ;
+    // h_isolated_ak1chs_charge              = fs->make<TH1F>("h_isolated_ak1chs_charge",               "h_isolated_ak1chs_charge",             40,-20.,20.);
+    // h_isolated_ak1chs_isolation           = fs->make<TH1F>("h_isolated_ak1chs_isolation",            "h_isolated_ak1chs_isolation",          200,0.,2.)  ;
+    // h_isolated_ak1chs_higgsMass           = fs->make<TH1F>("h_isolated_ak1chs_higgsMass",            "h_isolated_ak1chs_higgsMass",          200,0.,200.);
+    // if isolated ak1 has at least two jets work in higgs
+    h_selected_ak1chs_n                   = fs->make<TH1F>("h_selected_ak1chs_n",                    "h_selected_ak1chs_n",                  20,0.,20.)  ;
+    h_selected_ak1chs_pt                  = fs->make<TH1F>("h_selected_ak1chs_pt",                   "h_selected_ak1chs_pt" ,                200,0.,200.); 
+    h_selected_ak1chs_mass                = fs->make<TH1F>("h_selected_ak1chs_mass",                 "h_selected_ak1chs_mass" ,              200,0.,200.); 
+    h_selected_ak1chs_neutralMultiplicity = fs->make<TH1F>("h_selected_ak1chs_neutralMultiplicity",  "h_selected_ak1chs_neutralMultiplicity",50,0.,50.)  ;
+    h_selected_ak1chs_chargedMultiplicity = fs->make<TH1F>("h_selected_ak1chs_chargedMultiplicity",  "h_selected_ak1chs_chargedMultiplicity",50,0.,50.)  ;
+    h_selected_ak1chs_numberOfDaughters   = fs->make<TH1F>("h_selected_ak1chs_numberOfDaughters",    "h_selected_ak1chs_numberOfDaughters",  50,0.,50.)  ;
+    h_selected_ak1chs_partonFlavour       = fs->make<TH1F>("h_selected_ak1chs_partonFlavour",        "h_selected_ak1chs_partonFlavour",      25,0.,25.)  ;
+    h_selected_ak1chs_jetArea             = fs->make<TH1F>("h_selected_ak1chs_jetArea",              "h_selected_ak1chs_jetArea",            100,0.,1.)  ;
+    h_selected_ak1chs_charge              = fs->make<TH1F>("h_selected_ak1chs_charge",               "h_selected_ak1chs_charge",             40,-20.,20.);
+    h_selected_ak1chs_isolation           = fs->make<TH1F>("h_selected_ak1chs_isolation",            "h_selected_ak1chs_isolation",          200,0.,2.)  ;
+    h_selected_ak1chs_higgsMass           = fs->make<TH1F>("h_selected_ak1chs_higgsMass",            "h_selected_ak1chs_higgsMass",          200,0.,200.);
 }
 
 Dhadron::~Dhadron()
@@ -255,10 +196,10 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   //
   edm::Handle<pat::JetCollection> AK1CHS; 
   iEvent.getByToken(ak1PFCHSjetToken_, AK1CHS);
-  edm::Handle<pat::JetCollection> AK2CHS;
-  iEvent.getByToken(ak2PFCHSjetToken_, AK2CHS);
+
   edm::Handle<pat::JetCollection> AK4CHS;
   iEvent.getByToken(jetToken_, AK4CHS); // jets are stored in decending order of pt
+
   edm::Handle<pat::TauCollection>  taus;
   iEvent.getByToken(tauToken_, taus);
   
@@ -267,8 +208,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   
   edm::Handle<std::vector<reco::Vertex>> vertices;
   iEvent.getByToken(vtxToken_, vertices);
-  if (vertices->empty()) return; // skip the event if no PV found
-  const reco::Vertex &PV = vertices->front();
+  // const reco::Vertex &PV = vertices->front();
 
   edm::Handle<edm::TriggerResults> triggerBits;
   iEvent.getByToken(triggerBits_, triggerBits);
@@ -294,6 +234,16 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   edm::Handle<l1t::TauBxCollection> L1Taus; 
   iEvent.getByToken(l1TauToken_, L1Taus);
 
+  edm::Handle<reco::GenJetCollection> getJets; 
+  iEvent.getByToken(ak4genjetToken_, getJets);
+  
+  edm::Handle<reco::GenParticleCollection> pythiaParticles; 
+  iEvent.getByToken(prunedGenParticles_, pythiaParticles);
+  
+  edm::Handle<pat::PackedGenParticleCollection> pythiaFinalParticles; 
+  iEvent.getByToken(packedGenParticles_, pythiaFinalParticles);
+
+  if (vertices->empty()) return; // skip the event if no PV found
   //
   if (!taus.isValid()) {
     edm::LogWarning("Dhadron") << "no pat::Tau in event";
@@ -304,48 +254,95 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     edm::LogWarning("Dhadron") << "no pat::AK1CHS in event";
     return;
   }
-  if (!AK2CHS.isValid()) {
-    edm::LogWarning("Dhadron") << "no pat::AK2CHS in event";
-    return;
-  }
+
   if (!AK4CHS.isValid()) {
     edm::LogWarning("Dhadron") << "no pat::AK4CHS in event";
     return;
   }
 
-  // cout << "Number of taus in an event: " << (*taus.product()).size() << endl; // this is how you skip event without 2 jets
-  // for (const pat::Tau &tau : *taus) {
-  //   // if (tau.pt() < 20) continue;
-  // }
+  // working with L1 tau objects
+  vector<l1t::Tau> selected_L1Tau; selected_L1Tau.clear();
+  for ( int bx=L1Taus->getFirstBX(); bx <=L1Taus->getLastBX(); ++bx){
+    for (l1t::TauBxCollection::const_iterator myTauObj=L1Taus->begin(bx); myTauObj!=L1Taus->end(bx); myTauObj++){
+        if (myTauObj->pt() >= 30.0 && abs(myTauObj->eta()) < 2.1 && myTauObj->hwIso() ==1 ){
+          h_l1Tau_pt     ->Fill(myTauObj->pt());
+          h_l1Tau_eta    ->Fill(myTauObj->eta());
+          h_l1Tau_phi    ->Fill(myTauObj->phi());
+          h_l1Tau_mt     ->Fill(myTauObj->mt());
+          h_l1Tau_energy ->Fill(myTauObj->energy());
+          h_l1Tau_isoEt  ->Fill(myTauObj->isoEt());
+          h_l1Tau_hwIso  ->Fill(myTauObj->hwIso());
+          selected_L1Tau.push_back(*myTauObj);
+        }
+    }
+  }
+  //
+  h_l1Tau_n->Fill(selected_L1Tau.size());  
+  // below says there are 2 or 3 high pt L1 tau object but also other numerous low pt l1 taus.    
+  if((*AK1CHS.product()).size() <=1 || (*AK4CHS.product()).size() <=1 || selected_L1Tau.size() <=1 || selected_L1Tau.size() >=4) return;
+  // finding the matched ak4 and filling them
+  vector<pat::Jet> matched_ak4chsJets; matched_ak4chsJets.clear();
+  for (const pat::Jet &ijet : *AK4CHS) {  
+    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1) continue;
+    for (const l1t::Tau &itau : selected_L1Tau) {
+      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) <= 0.1) {
+        matched_ak4chsJets.push_back(ijet); // matched
+        h_matched_ak4chs_pt                  ->Fill(ijet.pt());
+        h_matched_ak4chs_mass                ->Fill(ijet.mass()); 
+        h_matched_ak4chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity()); 
+        h_matched_ak4chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity ()); 
+        h_matched_ak4chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters()); 
+        h_matched_ak4chs_partonFlavour       ->Fill(ijet.partonFlavour()); 
+        h_matched_ak4chs_jetArea             ->Fill(ijet.jetArea()); 
+        h_matched_ak4chs_charge              ->Fill(ijet.charge()); 
+        h_matched_ak4chs_isolation           ->Fill(-1000);  
+        break;
+      }
+    }
+  }
+  // filling the matched jets and selecting depending on isolation
+  h_matched_ak4chs_n->Fill(matched_ak4chsJets.size()); 
+  vector<pat::Jet> selected_ak4chsJets; selected_ak4chsJets.clear();  
+  if (matched_ak4chsJets.size() == 2 || matched_ak4chsJets.size() ==3) {
+    for (const pat::Jet &ijet : matched_ak4chsJets) {
+      h_selected_ak4chs_pt                  ->Fill(ijet.pt());
+      h_selected_ak4chs_mass                ->Fill(ijet.mass());
+      h_selected_ak4chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity());
+      h_selected_ak4chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity());
+      h_selected_ak4chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters());
+      h_selected_ak4chs_partonFlavour       ->Fill(ijet.partonFlavour());
+      h_selected_ak4chs_jetArea             ->Fill(ijet.jetArea());
+      h_selected_ak4chs_charge              ->Fill(ijet.charge());
+      h_selected_ak4chs_isolation           ->Fill(-1000);
+      selected_ak4chsJets.push_back(ijet);
+    }
 
-  if ((*AK1CHS.product()).size()<=1 || (*AK2CHS.product()).size()<=1 || (*AK4CHS.product()).size() <=1 || (*L1Taus.product()).size() <=1 || (*L1Taus.product()).size() >=4) return;
-  
-  // cout << "Number of L1 tau objects: " << (*L1Taus.product()).size() << endl;
-
-  // ak1jets
-  vector<TLorentzVector> higgsMass1Total; higgsMass1Total.clear();
-  vector<TLorentzVector> higgsMass1Total1; higgsMass1Total1.clear();
-  
-  
-  for (const pat::Jet &ijet : *AK1CHS) {
-
-    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
-    for (const l1t::Tau &itau : *L1Taus) {
-      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) >= 0.15) continue; // did not match
-    
+  } 
+  if (selected_ak4chsJets.size()!=0) h_selected_ak4chs_n->Fill(selected_ak4chsJets.size());
+  // matching the ak1 jet with selected ak4 jets         
+  vector<pat::Jet> matched_ak1chsJets; matched_ak1chsJets.clear();
+  for (const pat::Jet &ijet : *AK1CHS) {  
+    // if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
+    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.mass() <= 1.8 ) continue;
+    for (const pat::Jet &sjet : selected_ak4chsJets) {
+      if (deltaR(ijet.eta(), ijet.phi(), sjet.eta(), sjet.phi()) <= 0.1) {
+        matched_ak1chsJets.push_back(ijet); // matched
+        break;
+      }
+    }
+  }
+  if (matched_ak1chsJets.size() >0) h_matched_ak1chs_n->Fill(matched_ak1chsJets.size()); 
+  // fillin matched jet and selecting ak1 jet depending on isolation from matched ak1
+  vector<pat::Jet> isolated_ak1chsJets; isolated_ak1chsJets.clear();  
+  if (matched_ak1chsJets.size() == 2 || matched_ak1chsJets.size() ==3) {
+    for (const pat::Jet &ijet : matched_ak1chsJets) {
       double charged = 0, neutral = 0, pileup  = 0;
       std::vector< reco::CandidatePtr> constituents(ijet.daughterPtrVector());  // it contains all the daughters from the single jet
       if (constituents.size() == 0) continue;
-      std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
-      for (unsigned int i = 0; i < constituents.size(); ++i) {
-        const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-        // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      }
-
+      // std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
       for (unsigned int i = 0, n = pfCands->size(); i < n; ++i) {
         const pat::PackedCandidate &pf = (*pfCands)[i];
-        // cout << "test: " << pf.pdgId() << endl;
-        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 0.5) {
+        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 1) {
           // pfcandidate-based constituents removal
           if (std::find(constituents.begin(), constituents.end(), reco::CandidatePtr(pfCands,i)) != constituents.end()) continue;
           if (pf.charge() == 0) {
@@ -358,175 +355,46 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
         }
       }
       double iso = (charged + std::max(0.0, neutral-0.5*pileup))/ijet.pt();
-      h_ak1chs_Iso_dR5->Fill(iso);
-      if (iso >= 0.05) continue; // do things below for isolated jets only
-      // working with numbers of daughters in the jet
-      // for (unsigned int i = 0; i < constituents.size(); ++i) {
-      //   const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-      //   // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      //   cout << cand.pdgId() << endl;
-
-      // }
-      
-      constituents.clear(); 
-      TLorentzVector higgsMass1(0,0,0,0);
-      higgsMass1.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-      higgsMass1Total.push_back(higgsMass1);
-      h_ak1chs_pt               ->Fill(ijet.pt());
-      h_ak1chs_mass             ->Fill(ijet.mass());
-      h_ak1chs_numberOfDaughters->Fill(ijet.numberOfDaughters());
-      h_ak1chs_partonFlavour    ->Fill(ijet.partonFlavour());
-
-      if (iso <= 0.01) {
-        TLorentzVector higgsMass1(0,0,0,0);
-        higgsMass1.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-        higgsMass1Total1.push_back(higgsMass1);
-        h_ak4_pt_01               ->Fill(ijet.pt());
-        h_ak4_mass_01             ->Fill(ijet.mass());
-        h_ak4_numberOfDaughters_01->Fill(ijet.numberOfDaughters());
-        h_ak4chs_partonFlavour_01 ->Fill(ijet.partonFlavour());
-      }
-      break;
+      h_matched_ak1chs_pt                  ->Fill(ijet.pt());
+      h_matched_ak1chs_mass                ->Fill(ijet.mass()); 
+      h_matched_ak1chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity()); 
+      h_matched_ak1chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity ()); 
+      h_matched_ak1chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters()); 
+      h_matched_ak1chs_partonFlavour       ->Fill(ijet.partonFlavour()); 
+      h_matched_ak1chs_jetArea             ->Fill(ijet.jetArea()); 
+      h_matched_ak1chs_charge              ->Fill(ijet.charge()); 
+      h_matched_ak1chs_isolation           ->Fill(iso); 
+      if (iso <= 0.1) isolated_ak1chsJets.push_back(ijet);
     }
-  }
-  if (higgsMass1Total.size() >= 2) h_ak1chs_higgsMass->Fill((higgsMass1Total[0]+higgsMass1Total[1]).M());
-  if (higgsMass1Total1.size() >= 2) h_ak1chs_higgsMass1->Fill((higgsMass1Total1[0]+higgsMass1Total1[1]).M());
+
+  } 
+  //
+  if (isolated_ak1chsJets.size() != 0) h_isolated_ak1chs_n->Fill(isolated_ak1chsJets.size());
+  // filling the matched jets and selecting depending on isolation
+  vector<TLorentzVector> listOf4Vector; listOf4Vector.clear();
+  if (isolated_ak1chsJets.size() == 2 || isolated_ak1chsJets.size() ==3) {
+    for (const pat::Jet &ijet : isolated_ak1chsJets) {
+      h_selected_ak1chs_pt                  ->Fill(ijet.pt());
+      h_selected_ak1chs_mass                ->Fill(ijet.mass());
+      h_selected_ak1chs_neutralMultiplicity ->Fill(ijet.neutralMultiplicity());
+      h_selected_ak1chs_chargedMultiplicity ->Fill(ijet.chargedMultiplicity());
+      h_selected_ak1chs_numberOfDaughters   ->Fill(ijet.numberOfDaughters());
+      h_selected_ak1chs_partonFlavour       ->Fill(ijet.partonFlavour());
+      h_selected_ak1chs_jetArea             ->Fill(ijet.jetArea());
+      h_selected_ak1chs_charge              ->Fill(ijet.charge());
+      h_selected_ak1chs_isolation           ->Fill(-1000);
+
+      TLorentzVector forHiggs4vector(0,0,0,0);
+      forHiggs4vector.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
+      listOf4Vector.push_back(forHiggs4vector);
+      // selected the appropriate isolated jet and work on daughters
+
+    }
+    h_selected_ak1chs_n->Fill(isolated_ak1chsJets.size());
+
+  } 
+  if (listOf4Vector.size() >=2) h_selected_ak1chs_higgsMass->Fill((listOf4Vector[0] + listOf4Vector[1]).M()); 
   
-
-  // ak2jets
-  vector<TLorentzVector> higgsMass2Total; higgsMass2Total.clear();
-  vector<TLorentzVector> higgsMass2Total1; higgsMass2Total1.clear();
-
-  for (const pat::Jet &ijet : *AK2CHS) {  
-    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
-    for (const l1t::Tau &itau : *L1Taus) {
-      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) >= 0.15) continue; // did not match
-      double charged = 0, neutral = 0, pileup  = 0;
-      std::vector< reco::CandidatePtr> constituents(ijet.daughterPtrVector());  // it contains all the daughters from the single jet
-      if (constituents.size() == 0) continue;
-      std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
-      for (unsigned int i = 0; i < constituents.size(); ++i) {
-        const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-        // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      }
-
-      for (unsigned int i = 0, n = pfCands->size(); i < n; ++i) {
-        const pat::PackedCandidate &pf = (*pfCands)[i];
-        // cout << "test: " << pf.pdgId() << endl;
-        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 0.5) {
-          // pfcandidate-based constituents removal
-          if (std::find(constituents.begin(), constituents.end(), reco::CandidatePtr(pfCands,i)) != constituents.end()) continue;
-          if (pf.charge() == 0) {
-            if (pf.pt() > 0.5) neutral += pf.pt();
-          } else if (pf.fromPV() >= 2) {
-            charged += pf.pt();
-          } else {
-            if (pf.pt() > 0.5) pileup += pf.pt();
-          }
-        }
-      }
-      double iso = (charged + std::max(0.0, neutral-0.5*pileup))/ijet.pt(); // what is the good value for isolation
-      h_ak2chs_Iso_dR5->Fill(iso);
-      if (iso >= 0.05) continue; // do things below for isolated jets only
-      // working with numbers of daughters in the jet
-      // for (unsigned int i = 0; i < constituents.size(); ++i) {
-      //   const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-      //   // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      //   cout << cand.pdgId() << endl;
-
-      // }
-      TLorentzVector higgsMass2(0,0,0,0);
-      higgsMass2.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-      higgsMass2Total.push_back(higgsMass2);
-
-      h_ak2chs_pt               ->Fill(ijet.pt());
-      h_ak2chs_mass             ->Fill(ijet.mass());
-      h_ak2chs_numberOfDaughters->Fill(ijet.numberOfDaughters());
-      h_ak2chs_partonFlavour    ->Fill(ijet.partonFlavour());
-
-      if (iso <= 0.01) {
-        TLorentzVector higgsMass2(0,0,0,0);
-        higgsMass2.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-        higgsMass2Total1.push_back(higgsMass2);
-        h_ak4_pt_01               ->Fill(ijet.pt());
-        h_ak4_mass_01             ->Fill(ijet.mass());
-        h_ak4_numberOfDaughters_01->Fill(ijet.numberOfDaughters());
-        h_ak4chs_partonFlavour_01 ->Fill(ijet.partonFlavour());
-      }
-      break;
-    }
-  }
-  if (higgsMass2Total.size() >= 2) h_ak2chs_higgsMass->Fill((higgsMass2Total[0]+higgsMass2Total[1]).M());
-  if (higgsMass2Total1.size() >= 2) h_ak2chs_higgsMass1->Fill((higgsMass2Total1[0]+higgsMass2Total1[1]).M());
-
-  // ak4jets 
-  vector<TLorentzVector> higgsMass4Total; higgsMass4Total.clear();
-  vector<TLorentzVector> higgsMass4Total1; higgsMass4Total1.clear();
-  for (const pat::Jet &ijet : *AK4CHS) {  
-    if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
-    for (const l1t::Tau &itau : *L1Taus) {
-      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) >= 0.15) continue; // did not match
-      double charged = 0, neutral = 0, pileup  = 0;
-      std::vector< reco::CandidatePtr> constituents(ijet.daughterPtrVector());  // it contains all the daughters from the single jet
-      if (constituents.size() == 0) continue;
-      std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
-      for (unsigned int i = 0; i < constituents.size(); ++i) {
-        const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-        // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      }
-
-      for (unsigned int i = 0, n = pfCands->size(); i < n; ++i) {
-        const pat::PackedCandidate &pf = (*pfCands)[i];
-        // cout << "test: " << pf.pdgId() << endl;  
-        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 0.5) {
-          // pfcandidate-based constituents removal
-          if (std::find(constituents.begin(), constituents.end(), reco::CandidatePtr(pfCands,i)) != constituents.end()) continue;
-          if (pf.charge() == 0) {
-            if (pf.pt() > 1) neutral += pf.pt();
-          } else if (pf.fromPV() >= 2) {
-            charged += pf.pt();
-          } else {
-            if (pf.pt() > 1) pileup += pf.pt();
-          }
-        }
-      }
-      double iso = (charged + std::max(0.0, neutral-0.5*pileup))/ijet.pt(); // remaining with in 0.5 divided by jet means 0.1 iis 10%
-      h_ak4chs_Iso_dR5->Fill(iso);
-      if (iso >= 0.05) continue; // do things below for isolated jets only
-      // working with numbers of daughters in the jet
-      // for (unsigned int i = 0; i < constituents.size(); ++i) {
-      //   const pat::PackedCandidate &cand = dynamic_cast<const pat::PackedCandidate &>(*constituents[i]); // object daughter object
-      //   // printf(" constituent %3d: pt %6.2f, dz(pv) %+.3f, pdgId %+3d\n", i,cand.pt(),cand.dz(PV.position()),cand.pdgId());
-      //   cout << cand.pdgId() << endl;
-
-      // }
-      TLorentzVector higgsMass4(0,0,0,0);
-      higgsMass4.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-      higgsMass4Total.push_back(higgsMass4);
-      h_ak4_pt               ->Fill(ijet.pt());
-      h_ak4_mass             ->Fill(ijet.mass());
-      h_ak4_numberOfDaughters->Fill(ijet.numberOfDaughters());
-      h_ak4chs_partonFlavour ->Fill(ijet.partonFlavour());
-
-      if (iso <= 0.01) {
-        TLorentzVector higgsMass4(0,0,0,0);
-        higgsMass4.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
-        higgsMass4Total1.push_back(higgsMass4);
-        h_ak4_pt_01               ->Fill(ijet.pt());
-        h_ak4_mass_01             ->Fill(ijet.mass());
-        h_ak4_numberOfDaughters_01->Fill(ijet.numberOfDaughters());
-        h_ak4chs_partonFlavour_01 ->Fill(ijet.partonFlavour());
-      }
-
-      break;
-    }
-  }
-  if (higgsMass4Total.size() >= 2) h_ak4chs_higgsMass->Fill((higgsMass4Total[0]+higgsMass4Total[1]).M());
-  if (higgsMass4Total1.size() >= 2) h_ak4chs_higgsMass1->Fill((higgsMass4Total1[0]+higgsMass4Total1[1]).M());
-
-
-
-
   // edm::Handle<pat::MuonCollection>  muons;
   // iEvent.getByToken(muonToken_, muons);
   // // for (const pat::Muon &mu : *muons) {
