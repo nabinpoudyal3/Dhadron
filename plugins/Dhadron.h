@@ -41,6 +41,8 @@
 // Reclustering
 #include "DataFormats/JetReco/interface/PFJet.h"
 #include "DataFormats/JetReco/interface/PFJetCollection.h"
+#include "DataFormats/JetReco/interface/GenJet.h"
+#include "DataFormats/JetReco/interface/GenJetCollection.h"
 // hlt triggers
 #include "FWCore/Common/interface/TriggerNames.h"
 #include "DataFormats/Common/interface/TriggerResults.h"
@@ -84,7 +86,8 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     edm::EDGetTokenT <pat::PackedCandidateCollection> pfToken_;
 
     edm::EDGetTokenT <pat::JetCollection>             ak1PFCHSjetToken_;
-    
+    edm::EDGetTokenT <reco::GenJetCollection>         ak1PFCHSGenjetToken_;
+
     edm::EDGetTokenT <edm::TriggerResults>                        triggerBits_;
     edm::EDGetTokenT <std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;
     edm::EDGetTokenT <pat::PackedTriggerPrescales>                triggerPrescales_;
@@ -164,5 +167,17 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 	TH1F *h_selected_ak1chs_charge              ;
 	TH1F *h_selected_ak1chs_isolation           ;
 	TH1F *h_selected_ak1chs_higgsMass           ;
+
+    TH1F *h_matched_ak1chsGen_n                   ;
+    TH1F *h_matched_ak1chsGen_pt                  ;
+    TH1F *h_matched_ak1chsGen_mass                ;
+    TH1F *h_matched_ak1chsGen_neutralMultiplicity ;
+    TH1F *h_matched_ak1chsGen_chargedMultiplicity ;
+    TH1F *h_matched_ak1chsGen_numberOfDaughters   ;
+    TH1F *h_matched_ak1chsGen_partonFlavour       ;
+    TH1F *h_matched_ak1chsGen_jetArea             ;
+    TH1F *h_matched_ak1chsGen_charge              ;
+    TH1F *h_matched_ak1chsGen_isolation           ;
+    TH1F *h_matched_ak1chsGen_higgsMass           ;
 };
 #endif

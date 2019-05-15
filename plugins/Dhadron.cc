@@ -43,6 +43,8 @@
 // Packed Candidates, pfs
 #include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 #include "DataFormats/Math/interface/deltaR.h"
+#include "DataFormats/Math/interface/deltaPhi.h"
+
 // MC Truth
 #include "DataFormats/PatCandidates/interface/PackedGenParticle.h"
 #include "DataFormats/Candidate/interface/Candidate.h"
@@ -58,6 +60,8 @@
 // Reclustering
 #include "DataFormats/JetReco/interface/PFJet.h"
 #include "DataFormats/JetReco/interface/PFJetCollection.h"
+#include "DataFormats/JetReco/interface/GenJet.h"
+#include "DataFormats/JetReco/interface/GenJetCollection.h"
 // hlt triggers
 #include "FWCore/Common/interface/TriggerNames.h"
 #include "DataFormats/Common/interface/TriggerResults.h"
@@ -87,7 +91,8 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
   fatjetToken_  (consumes<pat::JetCollection>             (iConfig.getParameter<edm::InputTag>("fatjets"))),
   pfToken_      (consumes<pat::PackedCandidateCollection> (iConfig.getParameter<edm::InputTag>("pfCands"))),
 
-  ak1PFCHSjetToken_(consumes<pat::JetCollection>(edm::InputTag("selectedPatJetsAK1PFCHS"))),
+  ak1PFCHSjetToken_   (consumes<pat::JetCollection>(edm::InputTag("selectedPatJetsAK1PFCHS"))),
+  ak1PFCHSGenjetToken_(consumes<reco::GenJetCollection>(edm::InputTag("selectedPatJetsAK1PFCHS","genJets"))),
 
   triggerBits_     (consumes<edm::TriggerResults>                       (edm::InputTag("TriggerResults","","HLT"))),
   triggerObjects_  (consumes<std::vector<pat::TriggerObjectStandAlone>> (edm::InputTag("selectedPatTrigger"))),
@@ -103,8 +108,6 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
   prunedGenParticles_ (consumes<reco::GenParticleCollection      >(edm::InputTag("prunedGenParticles"))),
   packedGenParticles_ (consumes<pat::PackedGenParticleCollection >(edm::InputTag("packedGenParticles")))
 
-
- 
 {
     //now do what ever initialization is needed
     usesResource("TFileService");
@@ -175,6 +178,18 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_selected_ak1chs_charge              = fs->make<TH1F>("h_selected_ak1chs_charge",               "h_selected_ak1chs_charge",             40,-20.,20.);
     h_selected_ak1chs_isolation           = fs->make<TH1F>("h_selected_ak1chs_isolation",            "h_selected_ak1chs_isolation",          200,0.,2.)  ;
     h_selected_ak1chs_higgsMass           = fs->make<TH1F>("h_selected_ak1chs_higgsMass",            "h_selected_ak1chs_higgsMass",          200,0.,200.);
+    // selecting gen jets from selected ak1 jets
+    h_matched_ak1chsGen_n                   = fs->make<TH1F>("h_matched_ak1chsGen_n",                    "h_matched_ak1chsGen_n",                  20,0.,20.)  ;
+    h_matched_ak1chsGen_pt                  = fs->make<TH1F>("h_matched_ak1chsGen_pt",                   "h_matched_ak1chsGen_pt" ,                200,0.,200.); 
+    h_matched_ak1chsGen_mass                = fs->make<TH1F>("h_matched_ak1chsGen_mass",                 "h_matched_ak1chsGen_mass" ,              200,0.,200.); 
+    h_matched_ak1chsGen_neutralMultiplicity = fs->make<TH1F>("h_matched_ak1chsGen_neutralMultiplicity",  "h_matched_ak1chsGen_neutralMultiplicity",50,0.,50.)  ;
+    h_matched_ak1chsGen_chargedMultiplicity = fs->make<TH1F>("h_matched_ak1chsGen_chargedMultiplicity",  "h_matched_ak1chsGen_chargedMultiplicity",50,0.,50.)  ;
+    h_matched_ak1chsGen_numberOfDaughters   = fs->make<TH1F>("h_matched_ak1chsGen_numberOfDaughters",    "h_matched_ak1chsGen_numberOfDaughters",  50,0.,50.)  ;
+    h_matched_ak1chsGen_partonFlavour       = fs->make<TH1F>("h_matched_ak1chsGen_partonFlavour",        "h_matched_ak1chsGen_partonFlavour",      25,0.,25.)  ;
+    h_matched_ak1chsGen_jetArea             = fs->make<TH1F>("h_matched_ak1chsGen_jetArea",              "h_matched_ak1chsGen_jetArea",            100,0.,1.)  ;
+    h_matched_ak1chsGen_charge              = fs->make<TH1F>("h_matched_ak1chsGen_charge",               "h_matched_ak1chsGen_charge",             40,-20.,20.);
+    h_matched_ak1chsGen_isolation           = fs->make<TH1F>("h_matched_ak1chsGen_isolation",            "h_matched_ak1chsGen_isolation",          200,0.,2.)  ;
+    h_matched_ak1chsGen_higgsMass           = fs->make<TH1F>("h_matched_ak1chsGen_higgsMass",            "h_matched_ak1chsGen_higgsMass",          200,0.,200.);
 }
 
 Dhadron::~Dhadron()
@@ -242,6 +257,10 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   
   edm::Handle<pat::PackedGenParticleCollection> pythiaFinalParticles; 
   iEvent.getByToken(packedGenParticles_, pythiaFinalParticles);
+  
+  edm::Handle<reco::GenJetCollection> AK1CHSGEN; 
+  iEvent.getByToken(ak1PFCHSGenjetToken_, AK1CHSGEN);
+
 
   if (vertices->empty()) return; // skip the event if no PV found
   //
@@ -259,7 +278,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     edm::LogWarning("Dhadron") << "no pat::AK4CHS in event";
     return;
   }
-
+  
   // working with L1 tau objects
   vector<l1t::Tau> selected_L1Tau; selected_L1Tau.clear();
   for ( int bx=L1Taus->getFirstBX(); bx <=L1Taus->getLastBX(); ++bx){
@@ -285,7 +304,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   for (const pat::Jet &ijet : *AK4CHS) {  
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1) continue;
     for (const l1t::Tau &itau : selected_L1Tau) {
-      if (deltaR(ijet.eta(), ijet.phi(), itau.eta(), itau.phi()) <= 0.1) {
+      if (fabs(ijet.eta() - itau.eta() <=0.1 && deltaPhi(ijet.phi(),itau.phi()) <= 0.1)){
         matched_ak4chsJets.push_back(ijet); // matched
         h_matched_ak4chs_pt                  ->Fill(ijet.pt());
         h_matched_ak4chs_mass                ->Fill(ijet.mass()); 
@@ -325,7 +344,8 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     // if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.mass() <= 1.8 ) continue;
     for (const pat::Jet &sjet : selected_ak4chsJets) {
-      if (deltaR(ijet.eta(), ijet.phi(), sjet.eta(), sjet.phi()) <= 0.1) {
+      if (fabs(ijet.eta() - sjet.eta() <=0.1 && deltaPhi(ijet.phi(),sjet.phi()) <= 0.1)){
+
         matched_ak1chsJets.push_back(ijet); // matched
         break;
       }
@@ -342,7 +362,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       // std::sort(constituents.begin(), constituents.end(), [](const reco::CandidatePtr &p1, const reco::CandidatePtr &p2) { return p1->pt() > p2->pt(); }); // sorting the daughters by decending pt order
       for (unsigned int i = 0, n = pfCands->size(); i < n; ++i) {
         const pat::PackedCandidate &pf = (*pfCands)[i];
-        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 1) { // for Jacobian we really need isolated ak1 jet. 
+        if (deltaR(pf.eta(), pf.phi(), ijet.eta(), ijet.phi()) < 0.5) { // for Jacobian we really need isolated ak1 jet. 
           // pfcandidate-based constituents removal
           if (std::find(constituents.begin(), constituents.end(), reco::CandidatePtr(pfCands,i)) != constituents.end()) continue;
           if (pf.charge() == 0) {
@@ -372,6 +392,8 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   if (isolated_ak1chsJets.size() != 0) h_isolated_ak1chs_n->Fill(isolated_ak1chsJets.size());
   // filling the matched jets and selecting depending on isolation
   vector<TLorentzVector> listOf4Vector; listOf4Vector.clear();
+  std::sort(isolated_ak1chsJets.begin(), isolated_ak1chsJets.end(), [](const pat::Jet &ijet1, const pat::Jet &ijet2) { return ijet1.pt() > ijet2.pt(); }); // sorting the jets
+  vector<reco::GenJet> matched_ak1chsGenJets; matched_ak1chsGenJets.clear();
   if (isolated_ak1chsJets.size() == 2 || isolated_ak1chsJets.size() ==3) {
     for (const pat::Jet &ijet : isolated_ak1chsJets) {
       h_selected_ak1chs_pt                  ->Fill(ijet.pt());
@@ -387,6 +409,14 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       TLorentzVector forHiggs4vector(0,0,0,0);
       forHiggs4vector.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
       listOf4Vector.push_back(forHiggs4vector);
+      for (const reco::GenJet &gjet : *AK1CHSGEN){
+        if (fabs(ijet.eta() - gjet.eta() <=0.1 && deltaPhi(ijet.phi(),gjet.phi()) <= 0.1)){
+          matched_ak1chsGenJets.push_back(gjet); // matched
+          break;
+        }
+      }
+
+
       // selected the appropriate isolated jet and work on daughters
 
     }
@@ -394,7 +424,49 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
   } 
   if (listOf4Vector.size() >=2) h_selected_ak1chs_higgsMass->Fill((listOf4Vector[0] + listOf4Vector[1]).M()); 
-  
+  // finding the genparticle jets around the selected jet and ploting them to compare with selected jets
+  vector<TLorentzVector> listOf4VectorGen; listOf4VectorGen.clear();
+  if (matched_ak1chsGenJets.size() != 0) h_matched_ak1chsGen_n->Fill(matched_ak1chsGenJets.size());
+  std::sort(matched_ak1chsGenJets.begin(), matched_ak1chsGenJets.end(), [](const reco::GenJet &ijet1, const reco::GenJet &ijet2) { return ijet1.pt() > ijet2.pt(); }); // sorting the jets
+  if (matched_ak1chsGenJets.size() == 2 || matched_ak1chsGenJets.size() ==3) {
+    for (const reco::GenJet &ijet : matched_ak1chsGenJets) {
+      h_matched_ak1chsGen_pt                  ->Fill(ijet.pt());
+      h_matched_ak1chsGen_mass                ->Fill(ijet.mass());
+      // h_matched_ak1chsGen_neutralMultiplicity ->Fill(ijet.neutralMultiplicity());
+      // h_matched_ak1chsGen_chargedMultiplicity ->Fill(ijet.chargedMultiplicity());
+      h_matched_ak1chsGen_numberOfDaughters   ->Fill(ijet.numberOfDaughters());
+      // h_matched_ak1chsGen_partonFlavour       ->Fill(ijet.partonFlavour());
+      h_matched_ak1chsGen_jetArea             ->Fill(ijet.jetArea());
+      h_matched_ak1chsGen_charge              ->Fill(ijet.charge());
+      h_matched_ak1chsGen_isolation           ->Fill(-1000);
+
+      TLorentzVector forHiggs4vectorGen(0,0,0,0);
+      forHiggs4vectorGen.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
+      listOf4VectorGen.push_back(forHiggs4vectorGen);
+    }
+  } 
+  if (listOf4VectorGen.size() >=2) h_matched_ak1chsGen_higgsMass->Fill((listOf4VectorGen[0] + listOf4VectorGen[1]).M()); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // edm::Handle<pat::MuonCollection>  muons;
   // iEvent.getByToken(muonToken_, muons);
   // // for (const pat::Muon &mu : *muons) {

@@ -20,9 +20,10 @@ process.source = cms.Source("PoolSource",
     "file:/uscms_data/d3/npoudyal/HCC/Dataset/h2cc_miniAOD.root",
     )
 )
-from JMEAnalysis.JetToolbox.jetToolbox_cff import *
+from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
 jetToolbox( process, 'ak1', 'ak1JetSubs', 'noOutput',
-  PUMethod ='CHS',       
+  PUMethod ='CHS',  
+  runOnMC=True,miniAOD=True,
   # Cut ='pt > 10. && abs(eta) < 2.1',              
   JETCorrPayload = 'AK4PFchs', JETCorrLevels = ['L1FastJet','L2Relative', 'L3Absolute']
 )
