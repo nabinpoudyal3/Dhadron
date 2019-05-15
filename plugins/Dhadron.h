@@ -89,14 +89,15 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     edm::EDGetTokenT <std::vector<pat::TriggerObjectStandAlone> > triggerObjects_;
     edm::EDGetTokenT <pat::PackedTriggerPrescales>                triggerPrescales_;
     
-
     edm::EDGetTokenT <l1t::EGammaBxCollection> l1EGammasToken_;
     edm::EDGetTokenT <l1t::MuonBxCollection  > l1MuonsToken_;
     edm::EDGetTokenT <l1t::JetBxCollection   > l1JetsToken_;
     edm::EDGetTokenT <l1t::EtSumBxCollection > l1EtSumsToken_ ;
     edm::EDGetTokenT <l1t::TauBxCollection   > l1TauToken_;
 
-    edm::EDGetTokenT <reco::GenJetCollection> ak4genjetToken_;
+    edm::EDGetTokenT <reco::GenJetCollection      > ak4genjetToken_;     //slimmedGenJets
+    edm::EDGetTokenT <reco::GenParticleCollection > prunedGenParticles_; //prunedGenParticles --> all pythia level gen particles with c an c bars, higgs
+    edm::EDGetTokenT <pat::PackedGenParticleCollection > packedGenParticles_; //packedGenParticles --> all pythia level final state particles
   
 	TH1F *h_l1Tau_n                             ;
 	TH1F *h_l1Tau_pt                            ;

@@ -99,7 +99,12 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
   l1EtSumsToken_  (consumes<l1t::EtSumBxCollection >(edm::InputTag("caloStage2Digis:EtSum"))),
   l1TauToken_     (consumes<l1t::TauBxCollection   >(edm::InputTag("caloStage2Digis:Tau"))),
 
-  ak4genjetToken_ (consumes<reco::GenJetCollection >(edm::InputTag("slimmedGenJets")))
+  ak4genjetToken_     (consumes<reco::GenJetCollection           >(edm::InputTag("slimmedGenJets"))),
+  prunedGenParticles_ (consumes<reco::GenParticleCollection      >(edm::InputTag("prunedGenParticles"))),
+  packedGenParticles_ (consumes<pat::PackedGenParticleCollection >(edm::InputTag("packedGenParticles")))
+
+
+ 
 {
     //now do what ever initialization is needed
     usesResource("TFileService");
@@ -203,8 +208,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   
   edm::Handle<std::vector<reco::Vertex>> vertices;
   iEvent.getByToken(vtxToken_, vertices);
-  if (vertices->empty()) return; // skip the event if no PV found
-  const reco::Vertex &PV = vertices->front();
+  // const reco::Vertex &PV = vertices->front();
 
   edm::Handle<edm::TriggerResults> triggerBits;
   iEvent.getByToken(triggerBits_, triggerBits);
@@ -230,6 +234,16 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   edm::Handle<l1t::TauBxCollection> L1Taus; 
   iEvent.getByToken(l1TauToken_, L1Taus);
 
+  edm::Handle<reco::GenJetCollection> getJets; 
+  iEvent.getByToken(ak4genjetToken_, getJets);
+  
+  edm::Handle<reco::GenParticleCollection> pythiaParticles; 
+  iEvent.getByToken(prunedGenParticles_, pythiaParticles);
+  
+  edm::Handle<pat::PackedGenParticleCollection> pythiaFinalParticles; 
+  iEvent.getByToken(packedGenParticles_, pythiaFinalParticles);
+
+  if (vertices->empty()) return; // skip the event if no PV found
   //
   if (!taus.isValid()) {
     edm::LogWarning("Dhadron") << "no pat::Tau in event";
