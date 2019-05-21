@@ -264,10 +264,16 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
   if (vertices->empty()) return; // skip the event if no PV found
   //
-  if (!taus.isValid()) {
-    edm::LogWarning("Dhadron") << "no pat::Tau in event";
+
+  if (!L1Taus.isValid()) {
+    edm::LogWarning("Dhadron") << "no l1t:Taus in event";
     return;
   }
+
+  // if (!taus.isValid()) {
+  //   edm::LogWarning("Dhadron") << "no pat::Tau in event";
+  //   return;
+  // }
 
   if (!AK1CHS.isValid()) {
     edm::LogWarning("Dhadron") << "no pat::AK1CHS in event";
@@ -283,7 +289,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   vector<l1t::Tau> selected_L1Tau; selected_L1Tau.clear();
   for ( int bx=L1Taus->getFirstBX(); bx <=L1Taus->getLastBX(); ++bx){
     for (l1t::TauBxCollection::const_iterator myTauObj=L1Taus->begin(bx); myTauObj!=L1Taus->end(bx); myTauObj++){
-        if (myTauObj->pt() >= 30.0 && abs(myTauObj->eta()) < 2.1 && myTauObj->hwIso() ==1 ){
+        if (myTauObj->pt() >= 30.0 && abs(myTauObj->eta()) < 2.1 /*&& myTauObj->hwIso() ==1 */){ // remove or find out hardwareIso hwIso(). 
           h_l1Tau_pt     ->Fill(myTauObj->pt());
           h_l1Tau_eta    ->Fill(myTauObj->eta());
           h_l1Tau_phi    ->Fill(myTauObj->phi());
@@ -304,7 +310,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   for (const pat::Jet &ijet : *AK4CHS) {  
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1) continue;
     for (const l1t::Tau &itau : selected_L1Tau) {
-      if (fabs(ijet.eta() - itau.eta() <=0.1 && deltaPhi(ijet.phi(),itau.phi()) <= 0.1)){
+      if (fabs(ijet.eta() - itau.eta()) <=0.1 && fabs(deltaPhi(ijet.phi(),itau.phi())) <= 0.1){
         matched_ak4chsJets.push_back(ijet); // matched
         h_matched_ak4chs_pt                  ->Fill(ijet.pt());
         h_matched_ak4chs_mass                ->Fill(ijet.mass()); 
@@ -344,7 +350,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     // if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.mass() <= 1.8 ) continue;
     for (const pat::Jet &sjet : selected_ak4chsJets) {
-      if (fabs(ijet.eta() - sjet.eta() <=0.1 && deltaPhi(ijet.phi(),sjet.phi()) <= 0.1)){
+      if (fabs(ijet.eta() - sjet.eta() <=0.1) && fabs(deltaPhi(ijet.phi(),sjet.phi())) <= 0.1){
 
         matched_ak1chsJets.push_back(ijet); // matched
         break;
@@ -410,7 +416,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
       forHiggs4vector.SetPtEtaPhiM(ijet.pt(),ijet.eta(),ijet.phi(),ijet.mass());
       listOf4Vector.push_back(forHiggs4vector);
       for (const reco::GenJet &gjet : *AK1CHSGEN){
-        if (fabs(ijet.eta() - gjet.eta() <=0.1 && deltaPhi(ijet.phi(),gjet.phi()) <= 0.1)){
+        if (fabs(ijet.eta() - gjet.eta() <=0.1) && fabs(deltaPhi(ijet.phi(),gjet.phi())) <= 0.1){
           matched_ak1chsGenJets.push_back(gjet); // matched
           break;
         }
