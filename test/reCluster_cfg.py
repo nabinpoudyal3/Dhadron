@@ -1,4 +1,9 @@
-import FWCore.ParameterSet.Config as cms
+
+
+
+
+
+
 
 process = cms.Process("reClusterONE")
 
@@ -13,11 +18,13 @@ process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 process.options.allowUnscheduled = cms.untracked.bool(True)
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-    "file:/uscms_data/d3/npoudyal/HCC/Dataset/h2cc_miniAOD.root",
+     "file:/uscms_data/d3/npoudyal/2B34C313-2683-CC49-A2FF-A36B794241C0.root",
   	# "root://cmsxrootd.fnal.gov//store/mc/RunIISummer17MiniAOD/GluGluHToBB_M125_13TeV_powheg_pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/150000/060B1DAB-6FAA-E711-8F2B-0CC47A4D762A.root",
+    #"root://cmsxrootd.fnal.gov//store/mc/RunIIFall17MiniAODv2/GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8/MINIAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/120000/3E53F350-2853-E911-9668-A4BF0112BC92.root",
+
     )
 )
 from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
@@ -69,7 +76,7 @@ process.reClusterONE = cms.EDAnalyzer('Dhadron',
     pfCands   = cms.InputTag("packedPFCandidates"),   
 )
 process.TFileService = cms.Service("TFileService",
-      fileName = cms.string("ReClusteredHist_May21_test.root"),
+      fileName = cms.string("ReClusteredHist_bb_May23_test.root"),
       closeFileFast = cms.untracked.bool(True)
 )
 # Uncomment the following line if you would like to output the jet collections in a root file

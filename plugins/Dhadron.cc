@@ -123,7 +123,7 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_l1Tau_hwIso                         = fs->make<TH1F>("h_l1Tau_hwIso", "h_l1Tau_hwIso", 200,0.,2)   ;
     // if an event has 2 or 3 L1 tau, then below is the info about matched ak4chs jets with L1 tau
     h_matched_ak4chs_n                    = fs->make<TH1F>("h_matched_ak4chs_n",                    "h_matched_ak4chs_n",                  20,0.,20.)  ;
-    h_matched_ak4chs_pt                   = fs->make<TH1F>("h_matched_ak4chs_pt",                   "h_matched_ak4chs_pt" ,                200,0.,200.); 
+    h_matched_ak4chs_pt                   = fs->make<TH1F>("h_matched_ak4chs_pt",                   "h_matched_ak4chs_pt" ,                500,0.,500.); 
     h_matched_ak4chs_mass                 = fs->make<TH1F>("h_matched_ak4chs_mass",                 "h_matched_ak4chs_mass" ,              200,0.,200.); 
     h_matched_ak4chs_neutralMultiplicity  = fs->make<TH1F>("h_matched_ak4chs_neutralMultiplicity",  "h_matched_ak4chs_neutralMultiplicity",50,0.,50.)  ;
     h_matched_ak4chs_chargedMultiplicity  = fs->make<TH1F>("h_matched_ak4chs_chargedMultiplicity",  "h_matched_ak4chs_chargedMultiplicity",50,0.,50.)  ;
@@ -134,7 +134,7 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_matched_ak4chs_isolation            = fs->make<TH1F>("h_matched_ak4chs_isolation",            "h_matched_ak4chs_isolation",          200,0.,2.)  ;
     // if an event has 2 or 3 matched ak4csh jet then below is the info about matched ak1chs jets with matched ak4chs with matched L1 tau
     h_selected_ak4chs_n                   = fs->make<TH1F>("h_selected_ak4chs_n",                    "h_selected_ak4chs_n",                  20,0.,20.)  ;
-    h_selected_ak4chs_pt                  = fs->make<TH1F>("h_selected_ak4chs_pt",                   "h_selected_ak4chs_pt" ,                200,0.,200.); 
+    h_selected_ak4chs_pt                  = fs->make<TH1F>("h_selected_ak4chs_pt",                   "h_selected_ak4chs_pt" ,                500,0.,500.); 
     h_selected_ak4chs_mass                = fs->make<TH1F>("h_selected_ak4chs_mass",                 "h_selected_ak4chs_mass" ,              200,0.,200.); 
     h_selected_ak4chs_neutralMultiplicity = fs->make<TH1F>("h_selected_ak4chs_neutralMultiplicity",  "h_selected_ak4chs_neutralMultiplicity",50,0.,50.)  ;
     h_selected_ak4chs_chargedMultiplicity = fs->make<TH1F>("h_selected_ak4chs_chargedMultiplicity",  "h_selected_ak4chs_chargedMultiplicity",50,0.,50.)  ;
@@ -145,7 +145,7 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_selected_ak4chs_isolation           = fs->make<TH1F>("h_selected_ak4chs_isolation",            "h_selected_ak4chs_isolation",          200,0.,2.)  ;
     // matched with selected ak4chs
     h_matched_ak1chs_n                    = fs->make<TH1F>("h_matched_ak1chs_n",                    "h_matched_ak1chs_n",                  20,0.,20.)  ;
-    h_matched_ak1chs_pt                   = fs->make<TH1F>("h_matched_ak1chs_pt",                   "h_matched_ak1chs_pt" ,                200,0.,200.); 
+    h_matched_ak1chs_pt                   = fs->make<TH1F>("h_matched_ak1chs_pt",                   "h_matched_ak1chs_pt" ,                500,0.,500.); 
     h_matched_ak1chs_mass                 = fs->make<TH1F>("h_matched_ak1chs_mass",                 "h_matched_ak1chs_mass" ,              200,0.,200.); 
     h_matched_ak1chs_neutralMultiplicity  = fs->make<TH1F>("h_matched_ak1chs_neutralMultiplicity",  "h_matched_ak1chs_neutralMultiplicity",50,0.,50.)  ;
     h_matched_ak1chs_chargedMultiplicity  = fs->make<TH1F>("h_matched_ak1chs_chargedMultiplicity",  "h_matched_ak1chs_chargedMultiplicity",50,0.,50.)  ;
@@ -168,7 +168,7 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     // h_isolated_ak1chs_higgsMass           = fs->make<TH1F>("h_isolated_ak1chs_higgsMass",            "h_isolated_ak1chs_higgsMass",          200,0.,200.);
     // if isolated ak1 has at least two jets work in higgs
     h_selected_ak1chs_n                   = fs->make<TH1F>("h_selected_ak1chs_n",                    "h_selected_ak1chs_n",                  20,0.,20.)  ;
-    h_selected_ak1chs_pt                  = fs->make<TH1F>("h_selected_ak1chs_pt",                   "h_selected_ak1chs_pt" ,                200,0.,200.); 
+    h_selected_ak1chs_pt                  = fs->make<TH1F>("h_selected_ak1chs_pt",                   "h_selected_ak1chs_pt" ,                500,0.,500.); 
     h_selected_ak1chs_mass                = fs->make<TH1F>("h_selected_ak1chs_mass",                 "h_selected_ak1chs_mass" ,              200,0.,200.); 
     h_selected_ak1chs_neutralMultiplicity = fs->make<TH1F>("h_selected_ak1chs_neutralMultiplicity",  "h_selected_ak1chs_neutralMultiplicity",50,0.,50.)  ;
     h_selected_ak1chs_chargedMultiplicity = fs->make<TH1F>("h_selected_ak1chs_chargedMultiplicity",  "h_selected_ak1chs_chargedMultiplicity",50,0.,50.)  ;
@@ -177,10 +177,10 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_selected_ak1chs_jetArea             = fs->make<TH1F>("h_selected_ak1chs_jetArea",              "h_selected_ak1chs_jetArea",            100,0.,1.)  ;
     h_selected_ak1chs_charge              = fs->make<TH1F>("h_selected_ak1chs_charge",               "h_selected_ak1chs_charge",             40,-20.,20.);
     h_selected_ak1chs_isolation           = fs->make<TH1F>("h_selected_ak1chs_isolation",            "h_selected_ak1chs_isolation",          200,0.,2.)  ;
-    h_selected_ak1chs_higgsMass           = fs->make<TH1F>("h_selected_ak1chs_higgsMass",            "h_selected_ak1chs_higgsMass",          200,0.,200.);
+    h_selected_ak1chs_higgsMass           = fs->make<TH1F>("h_selected_ak1chs_higgsMass",            "h_selected_ak1chs_higgsMass",          500,0.,500.);
     // selecting gen jets from selected ak1 jets
     h_matched_ak1chsGen_n                   = fs->make<TH1F>("h_matched_ak1chsGen_n",                    "h_matched_ak1chsGen_n",                  20,0.,20.)  ;
-    h_matched_ak1chsGen_pt                  = fs->make<TH1F>("h_matched_ak1chsGen_pt",                   "h_matched_ak1chsGen_pt" ,                200,0.,200.); 
+    h_matched_ak1chsGen_pt                  = fs->make<TH1F>("h_matched_ak1chsGen_pt",                   "h_matched_ak1chsGen_pt" ,                500,0.,500.); 
     h_matched_ak1chsGen_mass                = fs->make<TH1F>("h_matched_ak1chsGen_mass",                 "h_matched_ak1chsGen_mass" ,              200,0.,200.); 
     h_matched_ak1chsGen_neutralMultiplicity = fs->make<TH1F>("h_matched_ak1chsGen_neutralMultiplicity",  "h_matched_ak1chsGen_neutralMultiplicity",50,0.,50.)  ;
     h_matched_ak1chsGen_chargedMultiplicity = fs->make<TH1F>("h_matched_ak1chsGen_chargedMultiplicity",  "h_matched_ak1chsGen_chargedMultiplicity",50,0.,50.)  ;
@@ -189,7 +189,13 @@ Dhadron::Dhadron(const edm::ParameterSet& iConfig)
     h_matched_ak1chsGen_jetArea             = fs->make<TH1F>("h_matched_ak1chsGen_jetArea",              "h_matched_ak1chsGen_jetArea",            100,0.,1.)  ;
     h_matched_ak1chsGen_charge              = fs->make<TH1F>("h_matched_ak1chsGen_charge",               "h_matched_ak1chsGen_charge",             40,-20.,20.);
     h_matched_ak1chsGen_isolation           = fs->make<TH1F>("h_matched_ak1chsGen_isolation",            "h_matched_ak1chsGen_isolation",          200,0.,2.)  ;
-    h_matched_ak1chsGen_higgsMass           = fs->make<TH1F>("h_matched_ak1chsGen_higgsMass",            "h_matched_ak1chsGen_higgsMass",          200,0.,200.);
+    h_matched_ak1chsGen_higgsMass           = fs->make<TH1F>("h_matched_ak1chsGen_higgsMass",            "h_matched_ak1chsGen_higgsMass",          500,0.,500.);
+
+    h2_ak1_ak1gen_deltaEta_deltaPhi         = fs->make<TH2F>("h2_ak1_ak4_deltaEta_deltaPhi",             "h2_ak1_ak1gen_deltaEta_deltaPhi",         100,-0.5,0.5,100,-0.5,0.5);
+    h2_l1Tau_ak1_deltaEta_deltaPhi          = fs->make<TH2F>("h2_l1Tau_ak1_deltaEta_deltaPhi",           "h2_l1Tau_ak1_deltaEta_deltaPhi",          100,-0.5,0.5,100,-0.5,0.5);
+    h2_ak1_ak1gen_deltaEta_deltaPhi         = fs->make<TH2F>("h2_ak1_ak1gen_deltaEta_deltaPhi",          "h2_ak1_ak1gen_deltaEta_deltaPhi",         100,-0.5,0.5,100,-0.5,0.5);
+    h2_l1Tau_ak1gen_deltaEta_deltaPhi       = fs->make<TH2F>("h2_l1Tau_ak1gen_deltaEta_deltaPhi",        "h2_l1Tau_ak1gen_deltaEta_deltaPhi",       100,-0.5,0.5,100,-0.5,0.5);
+
 }
 
 Dhadron::~Dhadron()
@@ -302,6 +308,7 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
     }
   }
   //
+
   h_l1Tau_n->Fill(selected_L1Tau.size());  
   // below says there are 2 or 3 high pt L1 tau object but also other numerous low pt l1 taus.    
   if((*AK1CHS.product()).size() <=1 || (*AK4CHS.product()).size() <=1 || selected_L1Tau.size() <=1 || selected_L1Tau.size() >=4) return;
@@ -349,19 +356,28 @@ void Dhadron::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
   for (const pat::Jet &ijet : *AK1CHS) {  
     // if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.numberOfDaughters() <= 1 || ijet.numberOfDaughters() >=8 || ijet.mass() <= 1.8 || ijet.mass() >= 4) continue;
     if(ijet.pt() <= 28. || fabs(ijet.eta()) >= 2.1 || ijet.mass() <= 1.8 ) continue;
-    for (const pat::Jet &sjet : selected_ak4chsJets) {
-      if (fabs(ijet.eta() - sjet.eta() <=0.1) && fabs(deltaPhi(ijet.phi(),sjet.phi())) <= 0.1){
 
+    for (const l1t::Tau &l1tau : selected_L1Tau) {
+      // 2D delta eta and deltaphi plot for selected ak4 and ak1
+      h2_l1Tau_ak1_deltaEta_deltaPhi->Fill(ijet.eta() - l1tau.eta(), deltaPhi(ijet.phi(),l1tau.phi()));
+    }
+
+    for (const pat::Jet &sjet : selected_ak4chsJets) {
+      // 2D delta eta and deltaphi plot for selected ak4 and ak1
+      // h2_ak1_ak4_deltaEta_deltaPhi->Fill(ijet.eta() - sjet.eta(), deltaPhi(ijet.phi(),sjet.phi())); // fill also which is not matching after break
+      if (fabs(ijet.eta() - sjet.eta() <=0.1) && fabs(deltaPhi(ijet.phi(),sjet.phi())) <= 0.1){
         matched_ak1chsJets.push_back(ijet); // matched
         break;
       }
     }
   }
+  
   if (matched_ak1chsJets.size() >0) h_matched_ak1chs_n->Fill(matched_ak1chsJets.size()); 
   // fillin matched jet and selecting ak1 jet depending on isolation from matched ak1
   vector<pat::Jet> isolated_ak1chsJets; isolated_ak1chsJets.clear();  
   if (matched_ak1chsJets.size() == 2 || matched_ak1chsJets.size() ==3) {
     for (const pat::Jet &ijet : matched_ak1chsJets) {
+      
       double charged = 0, neutral = 0, pileup  = 0;
       std::vector< reco::CandidatePtr> constituents(ijet.daughterPtrVector());  // it contains all the daughters from the single jet
       if (constituents.size() == 0) continue;

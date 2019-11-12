@@ -178,6 +178,13 @@ class Dhadron : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
     TH1F *h_matched_ak1chsGen_jetArea             ;
     TH1F *h_matched_ak1chsGen_charge              ;
     TH1F *h_matched_ak1chsGen_isolation           ;
-    TH1F *h_matched_ak1chsGen_higgsMass           ;
+	TH1F *h_matched_ak1chsGen_higgsMass           ;
+    
+    TH2F *h2_ak1_ak4_deltaEta_deltaPhi     ; // 
+    TH2F *h2_l1Tau_ak1_deltaEta_deltaPhi   ; // 
+    TH2F *h2_ak1_ak1gen_deltaEta_deltaPhi  ; // 
+	TH2F *h2_l1Tau_ak1gen_deltaEta_deltaPhi; // 
+
+
 };
 #endif
