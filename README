@@ -2,10 +2,10 @@ Dhadron
 
 Instructions
 
-Check the branch for the correspondent release. The master branch is for CMSSW_9_4_6_patch1, then for example:
+Check the branch for the correspondent release. The master branch is for CMSSW_10_2_14, then for example:
 
-cmsrel CMSSW_9_4_6_patch1
-cd CMSSW_9_4_6_patch1/src/
+cmsrel CMSSW_10_2_14
+cd CMSSW_10_2_14/src/
 cmsenv
 git clone -b Dhadron_L1Tau https://github.com/nabinpoudyal3/Dhadron.git hTocc/Dhadron
 scram b -j 18
